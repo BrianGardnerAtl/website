@@ -66,7 +66,7 @@ https://www.youtube.com/watch?v=ZZuqy3qx5Fs
 
 ## Meetup Talks
 
-Introduction to Flutter
+Introduction to Flutter and Dart
 GDG Atlanta 05/15/2018
 
 Intro to Room

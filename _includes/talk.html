@@ -1,0 +1,13 @@
+<div class="talk">
+  {% if include.link %}
+  <a href={{ include.link }}>
+  {% endif %}
+    <img class="talk-image" src="{{ include.image }}">
+    <h2 class="talk-title">{{ include.title }}</h2>
+    <p class="talk-details">{{ include.conference }} | {{ include.date }}</p>
+
+  {% if include.link %}
+  </a>
+  {% endif %}
+  <hr>
+</div>

@@ -6,7 +6,12 @@ title: Talks
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-      <h1>Talks coming soon!</h1>
+      {% for item in site.data.talks %}
+
+        {% include talk.html title=item.title conference=item.conference
+        date=item.date link=item.link image=item.image %}
+
+      {% endfor %}
     </div>
   </div>
 </div>

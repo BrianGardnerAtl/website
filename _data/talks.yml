@@ -1,25 +1,25 @@
 - title: Buffed-Up Biometrics
   conference: DroidCon SF
-  date: 11/2018
+  date: Nov, 2018
   link: https://www.youtube.com/watch?v=ZZuqy3qx5Fs
-  image: null
+  image: img/biometric_prompt.png
 - title: Take a Stab at Test-Friendly Architecture
   conference: Connect.Tech
-  date: 10/2018
+  date: Oct, 2018
   link: null
-  image: null
+  image: img/test_architecture.png
 - title: Mocks and Stubs and Spies, Oh My!
   conference: DroidCon NYC
-  date: 08/2018
+  date: Aug, 2018
   link: https://www.youtube.com/watch?v=BNXPRIscfQ8
-  image: null
+  image: img/test_doubles.png
 - title: Mocks and Stubs and Spies, Oh My!
   conference: DroidCon SF
-  date: 11/2017
+  date: Nov, 2017
   link: https://www.youtube.com/watch?v=tVCSKsMtXn0
-  image: null
+  image: img/test_doubles.png
 - title: Take a Stab at Test-Friendly Architecture
   conference: 360 AnDev
-  date: 07/2017
+  date: Jul, 2017
   link: https://academy.realm.io/posts/360-andev-2017-brian-gardner-test-friendly-architecture-dagger-2/
-  image: null
+  image: img/test_architecture.png

@@ -1,0 +1,23 @@
+@media only screen and (max-width: 767px) {
+  .talk-image {
+    width: 510px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .talk-image {
+    width: 570px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .talk-image {
+    width: 609px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .talk-image {
+    width: 730px;
+  }
+}

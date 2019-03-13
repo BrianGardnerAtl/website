@@ -1,7 +1,7 @@
 <div class="bnr_post">
   <a href={{ include.link }}>
     <h3 class="post-title">{{ include.title }}</h3>
-    <p class="post-details">{{ include.date }}</p>
+    <p class="post-details">{{ include.date | date: '%B %d, %Y' }}</p>
   </a>
   <hr>
 </div>

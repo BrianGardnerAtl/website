@@ -6,13 +6,11 @@ title: Blog
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
+      {% for post in site.posts %}
 
-      <h2>Big Nerd Ranch Blogposts</h2>
-      <hr>
-
-      {% for item in site.data.bnr_posts %}
-
-        {% include bnr_post.html title=item.title date=item.date link=item.link %}
+        {% if post.external_link %}
+            {% include bnr_post.html title=post.title date=post.date link=post.external_link %}
+        {% endif %}
 
       {% endfor %}
     </div>

@@ -27,3 +27,28 @@
     width: 730px;
   }
 }
+
+.bnr-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bnr-text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.bnr-text-content .post-title {
+  margin-bottom: 0;
+}
+
+.bnr-text-content .post-meta {
+  margin-bottom: 0;
+}
+
+.bnr-hat {
+  width: 133px;
+  height: 73px;
+  margin-right: 40px;
+}

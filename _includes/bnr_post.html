@@ -1,8 +1,10 @@
 <div class="bnr_post">
   <a href={{ include.link }}>
     <div class="bnr-content">
-      <img src="/img/bnr_hat.png"
-          class="bnr-hat"/>
+      <div class="bnr-image-content">
+        <img src="/img/bnr_hat.png"
+            class="bnr-hat"/>
+      </div>
       <div class="bnr-text-content">
         <h3 class="post-title">{{ include.title }}</h3>
         <p class="post-meta">{{ include.date | date: '%B %d, %Y' }}</p>

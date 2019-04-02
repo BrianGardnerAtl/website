@@ -30,6 +30,10 @@
 
 .bnr-content {
   display: flex;
+}
+
+.bnr-content .bnr-image-content {
+  display: flex;
   align-items: center;
   justify-content: center;
 }

@@ -1,7 +1,7 @@
 {
     "title": "Clean Blog",
     "name": "startbootstrap-clean-blog",
-    "version": "5.0.1",
+    "version": "5.0.8",
     "description": "Clean Blog is a Medium inspired blog theme for Bootstrap.",
     "keywords": [
         "css",
@@ -28,7 +28,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "5.3.1",
         "bootstrap": "4.3.1",
-        "jquery": "3.3.1",
+        "jquery": "3.4.0",
         "popper.js": "^1.14.7"
     },
     "devDependencies": {

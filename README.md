@@ -2,7 +2,11 @@
 
 This site is made with Jekyll
 
-Update stuff with npm update
+## Security issues
 
-- requires Python 2 so run `conda activate python2` in order to get the right
-  environment
+If Github says that there are security issues run this command to have npm fix
+them:
+
+```
+npm audit fix
+```

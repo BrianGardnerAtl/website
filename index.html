@@ -1,37 +1,22 @@
 ---
 layout: default
-title: Home
+title: Blog
 ---
 <!-- Main Content -->
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-      <h1>Welcome!</h1>
+      {% for post in site.posts %}
 
-      <p>
-        My name is Brian Gardner. I'm an Android developer and instructor
-        currently employed by Big Nerd Ranch in Savannah, Georgia. This is my
-        own little space on the vast internet and I'm glad you found it. I love
-        all things Android, but I'm also exploring the realms of Machine
-        Learning . I also have a love of mechanical keyboards, photography, and
-        drawing, so I may muse on those things here as well.
-      </p>
+        {% if post.external_link %}
+            {% include bnr_post.html title=post.title date=post.date link=post.external_link %}
+        {% else %}
+            {% include post.html title=post.title date=post.date link=post.url %}
+        {% endif %}
 
-      <p>
-        I love software development as well as teaching others how to develop.
-        Using the links in the menu, you can access my blog posts and conference
-        talks on various Android things. I'm also interested in live streaming
-        and screencasting so expect more content on Twitch and YouTube soon.
-      </p>
-
-      <p>
-        If you want to reach out to me, you can use the links at the bottom of
-        the page. Twitter is probably your best bet for contacting me. Just
-        tweet at me or send me a message and I'll get back to you soon!
-      </p>
+      {% endfor %}
     </div>
   </div>
 </div>
+
 <hr>
-
-

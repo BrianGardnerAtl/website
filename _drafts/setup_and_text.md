@@ -50,8 +50,8 @@ Creating the project is similar to the regular flow with the exception of your
 starter activity. When prompted, enter 'Empty Compose Activity' to get setup
 with a basic template.
 
-<img src="/assets/images/compose_1/empty_compose_activity.png" alt="Empty
-compose activity selection" width="700"/>
+<img class="post-image" src="/assets/images/compose_1/empty_compose_activity.png" alt="Empty
+compose activity selection"/>
 
 After that, just make sure your min SDK version is at least 21 and you can
 create the project. Once the project is ready you should be able to build the
@@ -60,7 +60,7 @@ your `MainActivity` class is open, click on the split button in the top-right of
 the screen to see the code and preview.
 
 <img src="/assets/images/compose_1/split_button.png" alt="Code and
-preview split button" width="700"/>
+preview split button" class="post-image"/>
 
 ### Version updates
 
@@ -210,7 +210,7 @@ to see the preview. If it does not show up then I need to build the project to
 see my view.
 
 <img src="/assets/images/compose_1/user_info_row_view.png" alt="User info row
-view displayed in the preview pane" width="700"/>
+view displayed in the preview pane" class="post-image"/>
 
 The text is displayed and it is shown in a row, but it still looks pretty bad.
 All of the text is the same size and there is no space between any of the
@@ -240,7 +240,7 @@ between the `DisplayName` and the `Handle`. The other constructor takes in a
 single parameter and applies that value to all four areas around the view.
 
 <img src="/assets/images/compose_1/padding_after_display_name.png" alt="Padding between
-display name and handle composable views" width="700"/>
+display name and handle composable views" class="post-image"/>
 
 With that padding in place, I just need to add some padding after the Handle as
 well.
@@ -277,7 +277,7 @@ fun PostTime(time: String) {
         )
     )
 }<img src="/assets/images/compose_1/user_info_row_spaced_out.png" alt="Padding
-added between handle and post time composable views" width="700"/>
+added between handle and post time composable views" class="post-image"/>
 
 ### Styling text
 
@@ -341,7 +341,7 @@ Once the text styles are in place and the preview refreshes, things are looking
 much better.
 
 <img src="/assets/images/compose_1/styled_user_info_row.png" alt="Styled
-user info row" width="700"/>
+user info row" class="post-image"/>
 
 In this post I have shown how to setup a project to use Jetpack Compose and
 display some text, as well as how to style the text and add some padding. In my

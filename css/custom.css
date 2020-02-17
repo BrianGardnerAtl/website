@@ -2,10 +2,16 @@
   .talk-image {
     width: 100%;
   }
+  .post-image {
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 575px) {
   .talk-image {
+    width: 510px;
+  }
+  .post-image {
     width: 510px;
   }
 }
@@ -14,16 +20,25 @@
   .talk-image {
     width: 570px;
   }
+  .post-image {
+    width: 570px;
+  }
 }
 
 @media only screen and (min-width: 992px) {
   .talk-image {
     width: 609px;
   }
+  .post-image {
+    width: 609px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
   .talk-image {
+    width: 730px;
+  }
+  .post-image {
     width: 730px;
   }
 }

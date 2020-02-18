@@ -11,7 +11,8 @@ title: Blog
         {% if post.external_link %}
             {% include bnr_post.html title=post.title date=post.date link=post.external_link %}
         {% else %}
-            {% include post.html title=post.title date=post.date link=post.url %}
+            {% include post.html title=post.title date=post.date link=post.url
+            post-excerpt=post.post-excerpt %}
         {% endif %}
 
       {% endfor %}

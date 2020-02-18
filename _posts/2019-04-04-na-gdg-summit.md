@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Fun Times at the GDG Summit"
+post-excerpt: "Learn about two days of learning, networking, and fun at the
+North American GDG Summit in Miami"
 ---
 
 # Fun Times at the GDG Summit

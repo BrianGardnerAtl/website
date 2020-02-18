@@ -2,34 +2,42 @@
 layout: post
 title: "Becoming a Composer"
 post-excerpt: "Dive into the world of composable views and learn how to setup
-a project with Jeptack Compose and start to work on a copy-cat Tweet view."
+a project with Jeptack Compose and implement a copy-cat Tweet view."
 ---
 
 # Becoming a Composer
 
 [Jetpack Compose](https://developer.android.com/jetpack/compose) is a new
 library from the Android team that simplifies UI creation. Small, composable
-functions create the building blocks of your view which are combined into
-higher-level components. These are pieced together to create your full UI.
+functions create the building blocks of your view. Combining these building
+blocks forms higher-level views and your full UI.
 
-In this blog series I'm going to focus on learning Jetpack Compose by
-reacreating some well known views from popular applications. My first copy-cat
-attempt is a Tweet view which provides plenty of room to explore composable
-functions and deal with view state.
+This blog series focuses on Jetpack Compose by reacreating some well known
+views from popular applications. My first copy-cat attempt is a Tweet view.
+This example provides room to explore composable functions and manage state.
 
 ## Tweet view parts
 
 ![Insert a tweet view here]()
 
-The view for a single tweet is relatively small but it holds a lot of data.
-There's information about the user, such as their profile photo, display
-name, and Twitter handle. There's also information for the tweet itself, such as
-the content of the tweet and the time since posting. Lastly, there are actions
-the reader can take on the Tweet, like commenting, retweeting, liking, and sharing.
+The view for a single tweet is small but it holds a lot of data.
 
-Each of these individual components can be broken up into composable functions.
-These functions should be small. Their only responsability is to take in some
-basic data to display and provide a component to do so.
+1. User information
+* Profile photo
+* Display Name
+* Twitter handle
+2. Tweet information
+* Content
+* Time since posting
+3. Actions
+* Comment
+* Retweet
+* Like
+* Share
+
+For a composable app, these components are broken up into separate functions.
+These functions should be small. Their only responsability is taking in basic
+data to display and provide a component to do so.
 
 Once these individual components are in place, they are combined together to
 create the full view. Each post in this series will look at a different part of
@@ -38,28 +46,26 @@ displaying the user's display name, Twitter handle, and Tweet time.
 
 ### Composable Tweet Strategy
 
-
+TODO: Fill out this section
 
 ## Project setup
 
-The first step to creating an app with Compose is ensuring you have the right
-version of Android Studio. Version 4 and up should have the tools needed, but at
-this time it is still in canary so you will need to download it from
-[the preview page](https://developer.android.com/studio/preview) if you do not
-have it yet. Once it is installed you are ready to go.
+The first step to use Compose app is downloading the right version of Android
+Studio. Version 4 and up has the required tools, but at this time it is still
+in canary. Canary versions can be downloaded from
+[the preview page](https://developer.android.com/studio/preview).
 
-Creating the project is similar to the regular flow with the exception of your
-starter activity. When prompted, enter 'Empty Compose Activity' to get setup
-with a basic template.
+The only difference when creating a new project is the starter activity.
+The 'Empty Compose Activity' provides the basic template for a composable
+activity.
 
 <img class="post-image" src="/assets/images/compose_1/empty_compose_activity.png" alt="Empty
 compose activity selection"/>
 
-After that, just make sure your min SDK version is at least 21 and you can
-create the project. Once the project is ready you should be able to build the
-app to see the preview page populate. If you do not see the preview page when
-your `MainActivity` class is open, click on the split button in the top-right of
-the screen to see the code and preview.
+The min SDK version must be at least 21 before creating the project.
+Once the project is ready, building the app populates the preview pane.
+If the preview pane is not open, clicking on the split button in the top-right
+of the screen opens it on the right.
 
 <img src="/assets/images/compose_1/split_button.png" alt="Code and
 preview split button" class="post-image"/>
@@ -67,14 +73,11 @@ preview split button" class="post-image"/>
 ### Version updates
 
 At the time of this writing, the version of the Jetpack Compose library provided
-in the template project is slightly behind the latest version. I did not run
-into issues with this until trying to deal with vector image loading but this
-seems like a better place to take care of it. I'll refer back here when the
-series gets to that point to make sure your project is setup correctly.
+in the template project is behind the latest version. I did not run
+into issues with this until trying to deal with vector image loading but
+updating it now ensures I am using the current APIs.
 
-First, open up the app-level `build.gradle` file and update the compose library
-dependencies. At the time of this writing they need to be updated to dev04 from
-dev02.
+At the time of this writing I update the versions to dev04 from dev02.
 
 ```kotlin
 dependencies {
@@ -86,16 +89,18 @@ dependencies {
 }
 ```
 
-You will also need to add some custom options into the android block.
+The compiler requires some additional compose options in the android block.
+These options specify the Kotlin compiler version and extension versions so
+everything works with compose.
 
 ```kotlin
 android {
-  ...
+    ...
 
-  composeOptions {
-      kotlinCompilerVersion "1.3.61-dev-withExperimentalGoogleExtensions-20200129"
-      kotlinCompilerExtensionVersion "0.1.0-dev04"
-  }
+    composeOptions {
+        kotlinCompilerVersion "1.3.61-dev-withExperimentalGoogleExtensions-20200129"
+        kotlinCompilerExtensionVersion "0.1.0-dev04"
+    }
 }
 ```
 
@@ -103,8 +108,7 @@ With these in place I have the right version of compose as well as the
 right kotlin compiler extensions. For details on the current version of compose,
 check out the [compose release notes](https://developer.android.com/jetpack/androidx/releases/compose).
 
-Finally, the bulk of the default code in `MainActivity` can be removed to
-simplify things.
+Finally, deleting the bulk of the default code in `MainActivity` helps simplify things.
 
 ```kotlin
 class MainActivity : AppCompatActivity() {
@@ -119,16 +123,16 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-## Showing some user data
+## Show some user data
 
-The first piece of Tweet data to display is the user information at the top of
-the tweet. These are the user's display name, Twitter handle, and Tweet time.
-Displaying a piece of text in compose involves creating a composable function
+The first composable functions I added are for the user information at the top
+of the tweetn These are the user's display name, Twitter handle, and Tweet time.
+Displaying text in compose involves creating a composable function
 whose only responsibility is to diplay the text. Since there are three text
-items, add three functions for each item.
+items, I add three functions for each item.
 
-I'll note that these functions are not defined inside of the `MainActivity`
-class. They should be usable from other places as well. I just put them in the
+Note that these functions are not defined inside of the `MainActivity`
+class. They should be usable from other classes as well. I just put them in the
 same file for convenience.
 
 ```kotlin
@@ -154,13 +158,12 @@ fun PostTime(time: String) {
 }
 ```
 
-Each function is annontated with `@Compose` so the system knows these are
-composable functions for building the UI. Each function takes in the string the
-view needs to display and displays it using the `Text` function.
+Each function has the `@Compose` annotatioun so the system knows these are
+composable functions. Each function has a `String` parameter for the text to
+display.
 
-Now that these low-level functions are in place, they can be composed in a
-higher-level function. The goal here is to display them in  a row at the top of
-the Tweet view so another composable function is needed.
+With these low-level functions in place, I combine them into a higher-level
+function representing the row of text.
 
 ```kotlin
 @Composable
@@ -173,21 +176,21 @@ fun UserInfoRow(name: String, handle: String, time: String) {
 }
 ```
 
-To display items in a row with compose, you just use the `Row` component. This
-component takes a lambda argument with each of the composable items it needs to
+To display items in a row with compose, you use the `Row` component. This
+component accepts a lambda argument with each of the items it needs to
 render.
 
 ### Checking progress in the preview
 
 Building composable functions is quick and I want to be able to verify they look
-correct before moving forward. Adding the views to my `MainActivity` view is one
+correct before continuing. Adding the views to my `MainActivity` view is one
 option but then I have to wait for the project to build and deploy each time I
-want to change something and see how it looks. Instead, I can take advantage of
-the `@Preview` annotation.
+want to change something. A better alternative is the `@Preview` annotation.
 
-At the bottom of the generated `MainActivity` class there is a default preview
-function. This uses the default Hello Android! text so it is not useful so I'll
-change it to display my `UserInfoRow`.
+Applying this annotation to a composable function renders its content in
+the preview pane in Android Studio. I use this to create a preview function to
+view the progress of my tweet view. For now, it displays my current
+`UserInfoRow`.
 
 ```kotlin
 @Preview
@@ -203,26 +206,22 @@ fun TwitterPreview() {
 }
 ```
 
-The `MaterialTheme` allows me to apply a theme to my composable functions if I
-want but I'm not using it right now. In a later blog post I'll take a look at
-what the theme does and how to modify it.
-
-When I add in the `UserInfoRow` in my preview function I can open the split view
-to see the preview. If it does not show up then I need to build the project to
-see my view.
-
 <img src="/assets/images/compose_1/user_info_row_view.png" alt="User info row
 view displayed in the preview pane" class="post-image"/>
 
-The text is displayed and it is shown in a row, but it still looks pretty bad.
+The `MaterialTheme` allows me to apply a theme to my composable functions if I
+want but I am not using it right now. In a later blog post I'll take a look at
+what the theme does and how to modify it.
+
+While the row displays all of the text, it still looks pretty bad.
 All of the text is the same size and there is no space between any of the
-items. By default, the `Row` will take up as much space as all of the child
-items and will leave no extra space for padding.
+items. By default, the `Row` takes up as much space as all of the child
+items and leaves no extra space for padding.
 
 ### Adding some space
 
-Fortunately, adding space to the text is relatively straightforward. I will take
-a look at the `DisplayName` composable first. There is a `modifier` parameter to
+Fortunately, adding space to the text is straightforward. I started by looking
+at the `DisplayName` composable. There is a `modifier` parameter to
 the `Text` composable where padding can be applied.
 
 ```kotlin
@@ -235,17 +234,17 @@ fun DisplayName(name: String) {
 }
 ```
 
-The `LayoutPadding` object has two constructors. The one I use above allows me
-to specify the padding for the left, top, right, and bottom of the view
-individually. I only pass in a value for the right padding so I can add space
-between the `DisplayName` and the `Handle`. The other constructor takes in a
+The `LayoutPadding` object has two constructors. The one I use above specifies
+the padding for the left, top, right, and bottom of the view separately.
+I only pass in a value for the right padding so I can add space
+between the `DisplayName` and the `Handle`. The other constructor accepts a
 single parameter and applies that value to all four areas around the view.
 
 <img src="/assets/images/compose_1/padding_after_display_name.png" alt="Padding between
 display name and handle composable views" class="post-image"/>
 
-With that padding in place, I just need to add some padding after the Handle as
-well.
+With that padding in place, I copy this padding to the `Handle` composable to
+add space between the twitter handle and post time.
 
 ```kotlin
 @Composable
@@ -256,41 +255,19 @@ fun Handle(handle: String) {
     )
 }
 ```
-
-@Composable
-fun Handle(handle: String) {
-    Text(
-        text = handle,
-        modifier = LayoutPadding(0.dp, 0.dp, 8.dp, 0.dp),
-        style = TextStyle(
-            color = Color.DarkGray, // TODO update this with an appropriate theme color
-            fontSize = 12.sp
-        )
-    )
-}
-
-@Composable
-fun PostTime(time: String) {
-    Text(
-        text = time,
-        style = TextStyle(
-            color = Color.DarkGray, // TODO update this with an appropriate theme color
-            fontSize = 12.sp
-        )
-    )
-}<img src="/assets/images/compose_1/user_info_row_spaced_out.png" alt="Padding
+<img src="/assets/images/compose_1/user_info_row_spaced_out.png" alt="Padding
 added between handle and post time composable views" class="post-image"/>
 
 ### Styling text
 
-Last up for this post is to style the text to look more like the Tweet view. The
+Last up for this post is styling the text to look more like the Tweet view. The
 `DisplayName` should be bold with a black color to draw attention while the `Handle` and
-`PostTime` should be regular and a gray color. All of the text should also be
+`PostTime` should be a regular font style and a gray color. All of the text should also be
 smaller. I'll start with the `DisplayName`.
 
-To modify the style of `Text` there is a `style` parameter where you can pass in
-a `TextStyle` object. This object has plenty of options for modifying how the
-text is displayed on the screen.
+To modify the style of `Text` there is a `style` parameter that accepts
+a `TextStyle` object. The options on this class allow full control of how the
+text is displayed.
 
 ```kotlin
 @Composable
@@ -307,12 +284,13 @@ fun DisplayName(name: String) {
 }
 ```
 
-For the `DisplayText` I just need three of the attributes. I pass in a color,
-font size, and font weight. Looking at this implementation it is clear that the
+For the `DisplayText` I need three of the attributes. I pass in a color,
+font size, and font weight. This implementation makes clear that the
 Android team put a lot of effor into making a clear API that is easy to
 understand.
 
-A similar `TextStyle` can be applied to the `Handle` and `PostTime` functions.
+A similar `TextStyle` applied to the `Handle` and `PostTime` functions makes the
+text look right.
 
 ```kotlin
 @Composable
@@ -339,17 +317,17 @@ fun PostTime(time: String) {
 }
 ```
 
-Once the text styles are in place and the preview refreshes, things are looking
+Once the text styles are in place and the preview refreshes, things look
 much better.
 
 <img src="/assets/images/compose_1/styled_user_info_row.png" alt="Styled
 user info row" class="post-image"/>
 
-In this post I have shown how to setup a project to use Jetpack Compose and
-display some text, as well as how to style the text and add some padding. In my
-next few blog posts I will look at displaying images, handling click events, as
-well as dealing with state in Compose. Stay tuned for more!
+In this post I setup a project using Jetpack Compose and displayed some text,
+as well as styled the text and added padding.
+The next few blog posts focus on displaying images, handling click events, and
+dealing with state in Compose. Stay tuned for more!
 
-For more information there's a great [tutorial](https://developer.android.com/jetpack/compose/tutorial)
+For more information there is a great [tutorial](https://developer.android.com/jetpack/compose/tutorial)
 and [codelab](https://codelabs.developers.google.com/codelabs/jetpack-compose-basics)
 from Google that will walk you through some of the basics.

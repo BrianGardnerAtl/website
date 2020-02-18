@@ -2,7 +2,7 @@
 layout: post
 title: "Becoming a Composer"
 post-excerpt: "Dive into the world of composable views and learn how to setup
-a project with Jeptack Compose and implement a copy-cat Tweet view."
+a project with Jeptack Compose and start implementing a copy-cat Tweet view."
 ---
 
 # Becoming a Composer
@@ -10,7 +10,7 @@ a project with Jeptack Compose and implement a copy-cat Tweet view."
 [Jetpack Compose](https://developer.android.com/jetpack/compose) is a new
 library from the Android team that simplifies UI creation. Small, composable
 functions create the building blocks of your view. Combining these building
-blocks forms higher-level views and your full UI.
+blocks form higher-level views and your full UI.
 
 This blog series focuses on Jetpack Compose by reacreating some well known
 views from popular applications. My first copy-cat attempt is a Tweet view.
@@ -18,41 +18,41 @@ This example provides room to explore composable functions and manage state.
 
 ## Tweet view parts
 
-![Insert a tweet view here]()
+<img class="post-image" src="/assets/images/compose_1/tweet_view.png" alt="Screenshot of a basic tweet view"/>
 
 The view for a single tweet is small but it holds a lot of data.
 
 1. User information
-* Profile photo
-* Display Name
-* Twitter handle
-2. Tweet information
-* Content
-* Time since posting
-3. Actions
-* Comment
-* Retweet
-* Like
-* Share
 
-For a composable app, these components are broken up into separate functions.
-These functions should be small. Their only responsability is taking in basic
-data to display and provide a component to do so.
+- Profile photo
+- Display Name
+- Twitter handle
+
+2. Tweet information
+
+- Content
+- Time since posting
+
+3. Actions
+
+- Comment
+- Retweet
+- Like
+- Share
+
+For a composable app, separate functions represent each of these components.
+These functions should be small. Their only responsability providing a component to display their arguments.
 
 Once these individual components are in place, they are combined together to
 create the full view. Each post in this series will look at a different part of
 the Tweet view. This first post focuses on setting up a project with Compose and
 displaying the user's display name, Twitter handle, and Tweet time.
 
-### Composable Tweet Strategy
-
-TODO: Fill out this section
-
 ## Project setup
 
-The first step to use Compose app is downloading the right version of Android
-Studio. Version 4 and up has the required tools, but at this time it is still
-in canary. Canary versions can be downloaded from
+The first step to use Compose is downloading the right version of Android
+Studio. Version 4 and up have the required tools but at this time it is still
+in canary. Find canary versions at
 [the preview page](https://developer.android.com/studio/preview).
 
 The only difference when creating a new project is the starter activity.
@@ -77,7 +77,7 @@ in the template project is behind the latest version. I did not run
 into issues with this until trying to deal with vector image loading but
 updating it now ensures I am using the current APIs.
 
-At the time of this writing I update the versions to dev04 from dev02.
+I update the versions of three compose dependencies to dev04 from dev02.
 
 ```kotlin
 dependencies {
@@ -125,8 +125,8 @@ class MainActivity : AppCompatActivity() {
 
 ## Show some user data
 
-The first composable functions I added are for the user information at the top
-of the tweetn These are the user's display name, Twitter handle, and Tweet time.
+The first composable functions are for the user information at the top
+of the tweet. These are the user's display name, Twitter handle, and Tweet time.
 Displaying text in compose involves creating a composable function
 whose only responsibility is to diplay the text. Since there are three text
 items, I add three functions for each item.
@@ -158,7 +158,7 @@ fun PostTime(time: String) {
 }
 ```
 
-Each function has the `@Compose` annotatioun so the system knows these are
+Each function has the `@Compose` annotation so the system knows these are
 composable functions. Each function has a `String` parameter for the text to
 display.
 
@@ -209,8 +209,8 @@ fun TwitterPreview() {
 <img src="/assets/images/compose_1/user_info_row_view.png" alt="User info row
 view displayed in the preview pane" class="post-image"/>
 
-The `MaterialTheme` allows me to apply a theme to my composable functions if I
-want but I am not using it right now. In a later blog post I'll take a look at
+The `MaterialTheme` allows me to apply a theme to my composable functions but I
+am not using it right now. In a later blog post I will take a look at
 what the theme does and how to modify it.
 
 While the row displays all of the text, it still looks pretty bad.
@@ -255,6 +255,7 @@ fun Handle(handle: String) {
     )
 }
 ```
+
 <img src="/assets/images/compose_1/user_info_row_spaced_out.png" alt="Padding
 added between handle and post time composable views" class="post-image"/>
 
@@ -286,7 +287,7 @@ fun DisplayName(name: String) {
 
 For the `DisplayText` I need three of the attributes. I pass in a color,
 font size, and font weight. This implementation makes clear that the
-Android team put a lot of effor into making a clear API that is easy to
+Android team put a lot of effort into making a clear API that is easy to
 understand.
 
 A similar `TextStyle` applied to the `Handle` and `PostTime` functions makes the
@@ -325,9 +326,9 @@ user info row" class="post-image"/>
 
 In this post I setup a project using Jetpack Compose and displayed some text,
 as well as styled the text and added padding.
-The next few blog posts focus on displaying images, handling click events, and
+The next few blog posts will focus on displaying images, handling click events, and
 dealing with state in Compose. Stay tuned for more!
 
 For more information there is a great [tutorial](https://developer.android.com/jetpack/compose/tutorial)
 and [codelab](https://codelabs.developers.google.com/codelabs/jetpack-compose-basics)
-from Google that will walk you through some of the basics.
+from Google that I recommend checking out!

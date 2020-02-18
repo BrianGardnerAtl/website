@@ -12,7 +12,7 @@ library from the Android team that simplifies UI creation. Small, composable
 functions create the building blocks of your view. Combining these building
 blocks form higher-level views and your full UI.
 
-This blog series focuses on Jetpack Compose by reacreating some well known
+This blog series focuses on Jetpack Compose by recreating some well known
 views from popular applications. My first copy-cat attempt is a Tweet view.
 This example provides room to explore composable functions and manage state.
 
@@ -41,7 +41,8 @@ The view for a single tweet is small but it holds a lot of data.
 - Share
 
 For a composable app, separate functions represent each of these components.
-These functions should be small. Their only responsability providing a component to display their arguments.
+These functions should be small. Their only responsibility providing a component
+to display their arguments.
 
 Once these individual components are in place, they are combined together to
 create the full view. Each post in this series will look at a different part of
@@ -128,7 +129,7 @@ class MainActivity : AppCompatActivity() {
 The first composable functions are for the user information at the top
 of the tweet. These are the user's display name, Twitter handle, and Tweet time.
 Displaying text in compose involves creating a composable function
-whose only responsibility is to diplay the text. Since there are three text
+whose only responsibility is to display the text. Since there are three text
 items, I add three functions for each item.
 
 Note that these functions are not defined inside of the `MainActivity`
@@ -150,7 +151,7 @@ fun Handle(handle: String) {
     )
 }
 
-@Compsable
+@Composable
 fun PostTime(time: String) {
     Text(
         text = "time"
@@ -330,5 +331,5 @@ The next few blog posts will focus on displaying images, handling click events, 
 dealing with state in Compose. Stay tuned for more!
 
 For more information there is a great [tutorial](https://developer.android.com/jetpack/compose/tutorial)
-and [codelab](https://codelabs.developers.google.com/codelabs/jetpack-compose-basics)
+and [code lab](https://codelabs.developers.google.com/codelabs/jetpack-compose-basics)
 from Google that I recommend checking out!

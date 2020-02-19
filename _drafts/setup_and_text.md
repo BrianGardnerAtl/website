@@ -322,8 +322,24 @@ fun PostTime(time: String) {
 Once the text styles are in place and the preview refreshes, things look
 much better.
 
-<img src="/assets/images/compose_1/styled_user_info_row.png" alt="Styled
-user info row" class="post-image"/>
+<img src="/assets/images/compose_1/styled_user_info_row.png" alt="Styled user info row" class="post-image"/>
+
+To complete the style, modifying the row with its own padding ensures the text has space between it and the other tweet content.
+
+```kotlin
+@Composable
+fun UserInfoRow(name: String, handle: String, time: String) {
+    Row(
+        modifier = LayoutPadding(8.dp)
+    ) {
+        DisplayName(name)
+        Handle(handle)
+        PostTime(time)
+    }
+}
+```
+
+<img src="/assets/images/compose_1/user_info_row_with_padding.png" alt="User info row surrounded by padding" class="post-image"/>
 
 In this post I setup a project using Jetpack Compose and displayed some text,
 as well as styled the text and added padding.

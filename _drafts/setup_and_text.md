@@ -22,23 +22,23 @@ This example provides room to explore composable functions and manage state.
 
 The view for a single tweet is small but it holds a lot of data.
 
-1. User information
+1.  User information
 
-- Profile photo
-- Display Name
-- Twitter handle
+    - Profile photo
+    - Display Name
+    - Twitter handle
 
-2. Tweet information
+2.  Tweet information
 
-- Content
-- Time since posting
+    - Content
+    - Time since posting
 
-3. Actions
+3.  Actions
 
-- Comment
-- Retweet
-- Like
-- Share
+    - Comment
+    - Retweet
+    - Like
+    - Share
 
 For a composable app, separate functions represent each of these components.
 These functions should be small. Their only responsibility providing a component

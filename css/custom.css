@@ -5,6 +5,10 @@
   .post-image {
     width: 100%;
   }
+  .center-screenshot {
+    width: 75%;
+    margin: auto;
+  }
 }
 
 @media only screen and (min-width: 575px) {
@@ -13,6 +17,10 @@
   }
   .post-image {
     width: 510px;
+  }
+  .center-screenshot {
+    width: 400px;
+    margin: auto;
   }
 }
 
@@ -23,6 +31,10 @@
   .post-image {
     width: 670px;
   }
+  .center-screenshot {
+    width: 400px;
+    margin: auto;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -31,6 +43,10 @@
   }
   .post-image {
     width: 750px;
+  }
+  .center-screenshot {
+    width: 450px;
+    margin: auto;
   }
 }
 
@@ -41,6 +57,14 @@
   .post-image {
     width: 900px;
   }
+  .center-screenshot {
+    width: 500px;
+    margin: auto;
+  }
+}
+
+.post-device-screenshot {
+  max-width: 100%;
 }
 
 .bnr-content {

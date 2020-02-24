@@ -13,7 +13,7 @@ when clicked to verify it works. In the next couple posts, the composable views
 will accept state as parameters and the action buttons will be updated to modify
 the state.
 
-# Capture Click
+## Capture Click
 
 Handling clicks with composable views differs from the regular view system on
 Android. The old way to handle clicks is to provide a `View.OnClickListener`
@@ -109,7 +109,7 @@ fun ActionRow() {
 
 With the lambdas in place, all that is needed is the toast.
 
-# Make Toast
+## Make Toast
 
 The toast messages will indicate that the click events are successfully handled. Making the toast requires a `Context` object, the string to display, and the duration. This lead to an interesting question.
 

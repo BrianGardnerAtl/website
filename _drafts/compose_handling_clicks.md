@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Handle Composable Clicks"
-post-excerpt: ""
+post-excerpt: "Fill this in before posting"
 ---
 
 # Handle Composable Clicks

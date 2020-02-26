@@ -83,10 +83,10 @@ I update the versions of three compose dependencies to dev05 from dev02.
 ```kotlin
 dependencies {
     ...
-    implementation 'androidx.ui:ui-framework:0.1.0-dev05'
-    implementation 'androidx.ui:ui-layout:0.1.0-dev05'
-    implementation 'androidx.ui:ui-material:0.1.0-dev05'
-    implementation 'androidx.ui:ui-tooling:0.1.0-dev05'
+    implementation "androidx.ui:ui-framework:0.1.0-dev05"
+    implementation "androidx.ui:ui-layout:0.1.0-dev05"
+    implementation "androidx.ui:ui-material:0.1.0-dev05"
+    implementation "androidx.ui:ui-tooling:0.1.0-dev05"
     ...
 }
 ```

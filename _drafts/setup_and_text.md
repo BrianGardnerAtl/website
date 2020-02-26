@@ -52,9 +52,10 @@ displaying the user's display name, Twitter handle, and Tweet time.
 ## Project setup
 
 The first step to use Compose is downloading the right version of Android
-Studio. Version 4 and up have the required tools but at this time it is still
-in canary. Find canary versions at
-[the preview page](https://developer.android.com/studio/preview).
+Studio. Version 4 of Android Studio is required but at this time only the canary
+version includes Compose. The new beta version **does not** work with compose at
+this time so make sure to use canary. Find canary versions at
+[the Android Studio archive page](https://developer.android.com/studio/archive).
 
 The only difference when creating a new project is the starter activity.
 The 'Empty Compose Activity' provides the basic template for a composable

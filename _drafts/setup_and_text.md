@@ -352,3 +352,6 @@ dealing with state in Compose. Stay tuned for more!
 For more information there is a great [tutorial](https://developer.android.com/jetpack/compose/tutorial)
 and [code lab](https://codelabs.developers.google.com/codelabs/jetpack-compose-basics)
 from Google that I recommend checking out!
+
+Header photo by [Jonathan J. Castellon](https://unsplash.com/@joncas89) on
+[Unsplash](https://unsplash.com)

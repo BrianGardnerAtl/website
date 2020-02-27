@@ -3,6 +3,7 @@ layout: post
 title: "Becoming a Composer"
 post-excerpt: "Dive into the world of composable views and learn how to setup
 a project with Jeptack Compose and start implementing a copy-cat Tweet view."
+header: "/assets/images/compose_1/header_image.jpg"
 ---
 
 # Becoming a Composer

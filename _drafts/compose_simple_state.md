@@ -1,18 +1,18 @@
 ---
 layout: post
 title: "Compose Simple State"
-post-excerpt: "Fill this in before posting"
+post-excerpt: "Learn how to add basic view state and how to conditionally add views in your composable functions."
 ---
 
 # Adding a Dash of State
 
-So far all of the data displayed in the Tweet view is static. The composable functions have parameters for the data they display but these values are hard-coded in the `TweetView` function. In this post the Tweet data is collected into a model object and fed to the composable functions.
+So far all of the data displayed in the Tweet view is static. The composable functions have parameters for the data they display but these values are hard-coded in `TweetView`. In this post the Tweet data is collected into a model object and fed to the composable functions.
 
-Displaying the text data, such as the display name and twitter handle, does not require updates to those composable functions. Some of the action row functions need updates in order to display the counts for the various actions. The number of comments, retweets, and likes need to display so users can see how much interaction there is with a particular Tweet.
+Displaying the text data, such as the display name and twitter handle, does not require updates to those composable functions. Some of the action row functions need updates in order to display the interaction counts for the various actions.
 
 ## Create a Tweet model
 
-The first step is to create a model object that stores the data for a single Tweet. A data class is perfect for this since it is only acting as data storage.
+The first step is to create a model object that stores the data for a single Tweet. A data class is perfect for this since it only acts as data storage.
 
 ```kotlin
 data class Tweet(
@@ -26,9 +26,9 @@ data class Tweet(
 )
 ```
 
-For now all of the data in the Tweet class are read-only. This may need to change later when the action row items are fully implemented.
+For now all of the data in the Tweet class is read-only. This may need to change later when the action row items modify the state.
 
-Next, the `TweetView` composable function needs to take in the `Tweet` class as a function parameter.
+Next, the `TweetView` function needs to take a `Tweet` as a parameter.
 
 ```kotlin
 @Composable
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-Similar code is added to the preview function so the project can build.
+Similar code added to the preview function allows the project to build successfully.
 
 ```kotlin
 @Preview
@@ -90,7 +90,7 @@ fun TwitterPreview() {
 
 ## Display the text
 
-With the sample Tweet data loaded it can be passed to the relevant, low-level composable functions to display. Passing this data to the `UserInfoRow` and `TweetContent` functions is straightforward.
+With the sample Tweet data loaded it can be passed to the relevant, low-level composable functions to display. Passing this data to `UserInfoRow` and `TweetContent` is straightforward.
 
 ```kotlin
 @Composable
@@ -109,11 +109,11 @@ fun TweetView(tweet: Tweet) {
 }
 ```
 
-The data is pulled from the tweet object and passed directly to the other composable functions. The whole tweet class is not passed to these other functions in order to keep them clean. Their only concern is taking in their String data and displaying it. It also prevents requiring updates to those functions if the Tweet class ever changes.
+The data is pulled from the tweet object and passed directly to the other functions. The whole tweet class is not passed to these other functions in order to keep them clean. Their only concern is taking in their String data and displaying it. This helps simplify any test code for these classes. It also prevents requiring updates to those functions if the Tweet class ever changes.
 
 ## Display the interaction count
 
-Next, some of the action row functions require updating to display the interaction counts. First, the counts are passed to the `ActionRow` so they can be passed to the relevant low-level functions.
+Next, some of the action row functions require changes to display the interaction counts. First, the counts are passed to the `ActionRow` so they can be forwarded to the other functions.
 
 ```kotlin
 @Composable
@@ -210,7 +210,7 @@ fun ActionRow(
 }
 ```
 
-Once the count values are passed to the functions, each one needs an update to display the count next to the icon. Since the icon and count are displayed next to each other, a `Row` is the perfect element to arrange them.
+Once the count values are passed to the functions, each one needs an update to display the count next to the icon. Since the icon and count are displayed next to each other, `Row` is the perfect element to arrange them.
 
 The `Text` compose element is used to display the count. Padding is added to the text so there is a gap between the icon and count. A `TextStyle` is also applied to configure the size and color of the count text.
 
@@ -359,6 +359,6 @@ Wrapping the `Text` in an if statement requires that the count is greater than z
 
 <img class="post-image" src="/assets/images/compose_4/action_row_counts_hidden.png" alt="Preview pane showing the tweet view with the zero counts hidden"/>
 
-With that, the simple state implementation is complete. Currently all of the data displayed is static. Over the next couple blog posts the `Comment`, `Like`, and `Retweet` components will be implemented. The like and retweet will toggle on and off and comment will increment the count since users can comment multiple times on the same Tweet.
+With that, the simple state implementation is complete. Over the next couple blog posts the `Comment`, `Like`, and `Retweet` components will be able to update the view state. The like and retweet will toggle on and off, and comment will increment the count since users can comment multiple times on the same Tweet.
 
 Thanks for reading and stay tuned for more!

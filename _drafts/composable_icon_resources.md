@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Composable Icon Resources"
-post-excerpt: "Fill in before publishing"
+post-excerpt: "Learn how to use vector icons with compose and how to space items out in a Row."
 ---
 
 ## Composable Icon Resources
 
-[My previous blog post](link_here) covers setting up an Android project with Jetpack Compose and displaying text. This post focuses on displaying icons for the Tweet's action row.
+[My previous blog post](/2020/02/27/compose-setup-and-text.html) covers setting up an Android project with Jetpack Compose and displaying text. This post focuses on displaying icons for the Tweet's action row.
 
 But first, a quick detour. The Tweet content lives between the user information row and the action row. This content is wrapped in a `Text` element along with an applied `TextStyle`. Since this composable item is not contained in a `Row` it also needs padding applied to it directly.
 
@@ -24,7 +24,7 @@ fun TweetContent(content: String) {
 }
 ```
 
-Next up is displaying this in the preview to verify it looks correct. Combining the `UserInfoRow` and `TweetContent` composable items in another composable simplifies this. When the action row is finished it can be added to this new composable as well.
+Next up is displaying the content in the preview to verify it looks correct. This is simplified by combining the `UserInfoRow` and `TweetContent` composable items in another composable function. The action row will also be added to this new composable function.
 
 ```kotlin
 @Composable
@@ -67,7 +67,7 @@ With the Tweet content in place, the action row is the next item to tackle. In m
 
 Each of these actions display an image and react to click events. The Retweet and Like actions also have a selected state to modify their appearance.
 
-Each action requires a separate compose function which another function combines to represent the row. To get something showing in the preview, `Button` is used as a placeholder for each action.
+Each action requires a separate compose function. Another function combines all of these actions into a row. To get something showing in the preview, `Button` is used as a placeholder for each action.
 
 ```kotlin
 @Composable
@@ -101,7 +101,7 @@ fun Share() {
 }
 ```
 
-Adding the `ActionRow` into the `TweetView` displays the new buttons in the preview.
+Adding the `ActionRow` into the `TweetView` displays the action buttons in the preview.
 
 ```kotlin
 @Composable
@@ -124,11 +124,11 @@ fun TweetView() {
 
 <img class="post-image" src="/assets/images/compose_2/initial_action_buttons.png" alt="Preview pane displaying the initial action buttons"/>
 
-The buttons verify that the action row displays on the screen but it does not match the Tweet view. For this, I need icons to use instead. Android Studio provides a tool to create vector assets with the default material icons. To learn how to use it, check out [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio).
+The buttons verify that the action row displays on the screen but it does not match the Tweet view. For this, I need icons. Android Studio provides a tool to create vector assets with the default material icons. To learn how to use it, check out [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio).
 
-I found suitable icons for the comment, retweet, and share actions. I use 'mode comment' for the comment action, 'loop' for the retweet action, and 'share' for the share action. I also set the color for these vector assets to white. White assets are much easier to tint the correct color.
+I found suitable icons for the comment, retweet, and share actions. I use `mode comment` for the comment action, `loop` for the retweet action, and `share` for the share action. I also set the color for these vector assets to white. White assets are easier to tint the correct color.
 
-Surprisingly, I could not find a heart icon to use for the like action. A quick search on StackOverflow returned [this page](https://stackoverflow.com/questions/45618391/heart-shaped-button-in-android). The first answer has a vector path that is perfect for my use case (thanks Uddhav Gautam!). My only modification updates the `fillColor` to white.
+Surprisingly, I could not find a heart icon to use for the like action. A quick search on StackOverflow returned [this page](https://stackoverflow.com/questions/45618391/heart-shaped-button-in-android). The first answer has a vector path that is perfect for my use case (thanks Uddhav Gautam!). My only modification sets the `fillColor` to white.
 
 ```xml
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
@@ -142,7 +142,7 @@ Surprisingly, I could not find a heart icon to use for the like action. A quick 
 </vector>
 ```
 
-The action composable functions need to load and display these vector assets. Each function can load its icon using the `vectorResource()` function. The `Text` components can be removed since they are no longer needed.
+The action functions need to load and display these vector assets. Each function can load its icon using the `vectorResource()` function. The `Button` components can be removed since they are no longer needed.
 
 ```kotlin
 @Composable
@@ -166,7 +166,7 @@ fun Share() {
 }
 ```
 
-When the images are loaded, the action items need a place to draw their icon. There is currently no composable item like `ImageButton` but the icons can be drawn manually. There is a `DrawVector` function that handles drawing vector assets but it needs to be drawn in something. There is a composable called `Container` that fits this use case.
+When the images are loaded, the action items need a place to draw their icon. There is currently no composable item like `ImageButton` but the icons can be drawn manually. There is a `DrawVector()` function that handles drawing vector assets but it needs to be drawn into something. There is a composable called `Container` that fits this use case.
 
 ```kotlin
 @Composable
@@ -224,17 +224,13 @@ fun Share() {
 
 It is tempting to refactor this code to a base function since they only differ in their resource IDs. This would prove painful later on since some of the buttons have different behavior than others. Having a little patience ensures I do not end up with [the wrong abstraction](https://www.sandimetz.com/blog/2016/1/20/the-wrong-abstraction).
 
-Once each action item has a container with a vector asset, the preview updates to show the action row. If the preview does not display anything after a build, click on the info button in the top right of the preview to open the messages pane. I encountered this issue and enabling the new Layout Rendering Engine fixed it. It does require a restart of Android Studio but my preview populated correctly.
-
-<img class="post-image" src="/assets/images/compose_2/layout_rendering_engine_prompt.png" alt="Preview pane message prompting the use of the new layout rendering engine"/>
-
-This is what my preview looks like after restarting.
+Once each action item has a container with a vector asset, the preview updates to show the action row.
 
 <img class="post-image" src="/assets/images/compose_2/action_row_with_icons.png" alt="Preview pane displaying the icon version of the action row"/>
 
 ### Tint the icons
 
-These icons work but they are difficult, if not impossible, to see when displayed on a light background. The `tintColor` attribute on the `DrawVector` function provides an easy way to specify the color of the icon.
+These icons work but they are difficult, if not impossible, to see on a light background. The `tintColor` attribute on the `DrawVector` function provides an easy way to specify the color of the icon.
 
 ```kotlin
 @Composable
@@ -298,9 +294,9 @@ fun Share() {
 
 ### Space out the action row items
 
-The action row has a similar problem to the original user info row. All of the icons are pushed to the left with no padding between them. Instead of manually adding spacing between the icons, I want my icons to be evenly spaced out in the row.
+The action row has a similar problem to the original user info row. All of the icons are pushed to the left with no padding between them. Instead of manually adding spacing between the icons, I want my icons to be evenly spaced out.
 
-The `Row` needs two attributes to space the items. First, it needs the `LayoutWidth.Fill` modifier to take up the full width of the view. This leads to a question. The action row already has the `LayoutPadding` modifier, so how can another one be added?
+The `Row` needs two attributes to add space. First, it needs the `LayoutWidth.Fill` modifier to take up the full width of the view. This leads to a question. The action row already has the `LayoutPadding` modifier, so how can another one be added?
 
 ```kotlin
 @Composable
@@ -343,6 +339,8 @@ fun ActionRow() {
 
 Once the row is appropriately sized, providing an `Arrangement` parameter tells the row how to position the child elements. The default is `Arrangement.Begin` which places all of the items at the start of the row with no padding. Other options that do not add padding are `Arrangement.Center` and `Arrangement.End`.
 
+#### Center Arrangement
+
 ```kotlin
 @Composable
 fun ActionRow() {
@@ -359,6 +357,8 @@ fun ActionRow() {
 ```
 
 <img class="post-image" src="/assets/images/compose_2/action_row_center_arrangement.png" alt="Preview pane showing the action row with a center arrangement"/>
+
+#### End Arrangement
 
 ```kotlin
 @Composable
@@ -381,7 +381,7 @@ There are three other arrangement options that provide spacing between the items
 
 The code comments in `Flex.kt` describe what each of these do.
 
-SpaceEvenly:
+#### SpaceEvenly Arrangement
 
 Place children such that they are spaced evenly across the main axis, including free space before the first child and after the last child.
 
@@ -402,7 +402,7 @@ fun ActionRow() {
 
 <img class="post-image" src="/assets/images/compose_2/action_row_space_evenly_arrangement.png" alt="Preview pane showing the action row with a space evenly arrangement"/>
 
-SpaceBetween:
+#### SpaceBetween Arrangement
 
 Place children such that they are spaced evenly across the main axis, without free space before the first child or after the last child.
 
@@ -423,7 +423,7 @@ fun ActionRow() {
 
 <img class="post-image" src="/assets/images/compose_2/action_row_space_between_arrangement.png" alt="Preview pane showing the action row with a space between arrangement"/>
 
-SpaceAround:
+#### SpaceAround Arrangement
 
 Place children such that they are spaced evenly across the main axis, including free space before the first child and after the last child, but half the amount of space existing otherwise between two consecutive children.
 

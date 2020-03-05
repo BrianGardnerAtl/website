@@ -10,25 +10,7 @@
     margin: auto;
   }
   header.masthead .site-heading {
-    background-image: url('/img/pineapple_background_400w.png');
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-}
-
-@media only screen and (min-width: 500px) {
-  .talk-image {
-    width: 100%;
-  }
-  .post-image {
-    width: 100%;
-  }
-  .center-screenshot {
-    width: 75%;
-    margin: auto;
-  }
-  header.masthead .site-heading {
-    background-image: url('/img/pineapple_background_455w.png');
+    background-image: url('/img/pineapple_background.png');
     background-position: center;
     background-repeat: no-repeat;
   }

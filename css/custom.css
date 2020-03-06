@@ -84,6 +84,10 @@
   max-width: 100%;
 }
 
+.post-emulator-recording {
+  max-width: 100%;
+}
+
 .bnr-content {
   display: flex;
 }

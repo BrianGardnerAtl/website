@@ -4,8 +4,6 @@ title: "Composable Icon Resources"
 post-excerpt: "Learn how to use vector icons with compose and how to space items out in a Row."
 ---
 
-## Composable Icon Resources
-
 [My previous blog post](/2020/02/27/compose-setup-and-text.html) covers setting up an Android project with Jetpack Compose and displaying text. This post focuses on displaying icons for the Tweet's action row.
 
 But first, a quick detour. The Tweet content lives between the user information row and the action row. This content is wrapped in a `Text` element along with an applied `TextStyle`. Since this composable item is not contained in a `Row` it also needs padding applied to it directly.

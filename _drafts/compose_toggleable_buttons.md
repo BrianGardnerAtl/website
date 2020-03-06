@@ -130,7 +130,7 @@ The class comment on the annotation provides details on exactly what this annota
 Since `TweetView` reads the `commentCount` property from the `Tweet`, it implicitly subscribes to changes to the value. When the `commentClick` listener modifies that value, the `TweetView` is redrawn to the screen.
 
 <div class="center-screenshot">
-    <video class="post-emulator-recording" controls>
+    <video class="post-emulator-recording" controls preload="auto">
         <source src="/assets/images/compose_5/comment_count_increment.webm" type="video/webm">
         Emulator screen recording of the comment count incrementing on click.
     </video>
@@ -374,7 +374,7 @@ fun TweetView(tweet: Tweet) {
 The toggle functions set the current state on the tweet, then modify the count based on which way the toggle goes. If the user likes the tweet the count is incremented, and if they unlike it then it is decremented.
 
 <div class="center-screenshot">
-    <video class="post-emulator-recording" controls>
+    <video class="post-emulator-recording" controls preload="auto">
         <source src="/assets/images/compose_5/toggle_actions_implemented.webm" type="video/webm">
         Emulator screen recording of the retweet and like actions toggling when clicked.
     </video>
@@ -455,7 +455,7 @@ fun Like(count: Int, liked: Boolean, onLikeChanged : (Boolean) -> Unit) {
 With this in place, the app now styles the like and retweet actions based on their state.
 
 <div class="center-screenshot">
-    <video class="post-emulator-recording" controls>
+    <video class="post-emulator-recording" controls preload="auto">
         <source src="/assets/images/compose_5/toggle_actions_styled.webm" type="video/webm">
         Emulator screen recording of the retweet and like actions toggling when clicked.
     </video>

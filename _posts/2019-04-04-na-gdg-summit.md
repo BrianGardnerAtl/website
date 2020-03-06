@@ -5,10 +5,6 @@ post-excerpt: "Learn about two days of learning, networking, and fun at the
 North American GDG Summit in Miami"
 ---
 
-# Fun Times at the GDG Summit
-
-Published {{ page.date | date: '%B %d, %Y' }}
-
 March 28th was an exciting day as I prepared to head to Miami for my first North America GDG Summit.
 I had no idea what to expect but it turned into a fantastic weekend full of meeting and learning from amazing people in the GDG community.
 

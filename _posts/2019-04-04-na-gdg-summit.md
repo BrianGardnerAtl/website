@@ -7,6 +7,8 @@ North American GDG Summit in Miami"
 
 # Fun Times at the GDG Summit
 
+Published {{ page.date | date: '%B %d, %Y' }}
+
 March 28th was an exciting day as I prepared to head to Miami for my first North America GDG Summit.
 I had no idea what to expect but it turned into a fantastic weekend full of meeting and learning from amazing people in the GDG community.
 
@@ -51,7 +53,7 @@ I’ve looked into recording talks before so it was nice to hear confirmation ab
 The presenter brought up a lot of good points to consider before streaming that I never would have thought about.
 While GDG Atlanta is a little ways off doing a live stream, I’m confident we could handle it in the future with the information presented.
 
-## Invaluable  Networking
+## Invaluable Networking
 
 While the sessions were great, I truly think that the networking was most valuable to me during the summit.
 The amount of experience available from the veteran organizers is truly impressive and I tried my best to soak up all that I could.

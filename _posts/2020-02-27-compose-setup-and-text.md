@@ -8,6 +8,8 @@ header: "/assets/images/compose_1/header_image.jpg"
 
 # Becoming a Composer
 
+Published {{ page.date | date: '%B %d, %Y' }}
+
 [Jetpack Compose](https://developer.android.com/jetpack/compose) is a new
 library from the Android team that simplifies UI creation. Small, composable
 functions create the building blocks of your view. Combining these building

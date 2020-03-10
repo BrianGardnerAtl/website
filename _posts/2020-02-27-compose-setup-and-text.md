@@ -6,6 +6,8 @@ a project with Jeptack Compose and start implementing a copy-cat Tweet view."
 header: "/assets/images/compose_1/header_image.jpg"
 ---
 
+(Updated 3/10/2020 with new Android Studio version requirements)
+
 [Jetpack Compose](https://developer.android.com/jetpack/compose) is a new
 library from the Android team that simplifies UI creation. Small, composable
 functions create the building blocks of your view. Combining these building
@@ -51,8 +53,8 @@ displaying the user's display name, Twitter handle, and Tweet time.
 ## Project setup
 
 The first step to use Compose is downloading the right version of Android
-Studio. Version 4 of Android Studio is required but at this time only the canary
-version includes Compose. The new beta version **does not** work with compose at
+Studio. Version 4.1 of Android Studio is required but at this time only the canary
+version includes Compose. The 4.0 beta version **does not** work with compose at
 this time so make sure to use canary. Find canary versions at
 [the Android Studio archive page](https://developer.android.com/studio/archive).
 
@@ -78,33 +80,15 @@ in the template project is behind the latest version. I did not run
 into issues with this until trying to deal with vector image loading but
 updating it now ensures I am using the current APIs.
 
-I update the versions of three compose dependencies to dev05 from dev02.
+I update the versions of four compose dependencies to dev06 from dev02.
 
-```kotlin
-dependencies {
-    ...
-    implementation "androidx.ui:ui-framework:0.1.0-dev05"
-    implementation "androidx.ui:ui-layout:0.1.0-dev05"
-    implementation "androidx.ui:ui-material:0.1.0-dev05"
-    implementation "androidx.ui:ui-tooling:0.1.0-dev05"
-    ...
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/f3e0dca9ec0fe294e5eaef1dd12c370c.js"></script>
 
 The compiler requires some additional compose options in the android block.
 These options specify the Kotlin compiler version and extension versions so
 everything works with compose.
 
-```kotlin
-android {
-    ...
-
-    composeOptions {
-        kotlinCompilerVersion "1.3.61-dev-withExperimentalGoogleExtensions-20200129"
-        kotlinCompilerExtensionVersion "0.1.0-dev04"
-    }
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/6898ddb60180b572b147a8b5163e219e.js"></script>
 
 With these in place I have the right version of compose as well as the
 right kotlin compiler extensions. For details on the current version of compose,
@@ -112,18 +96,7 @@ check out the [compose release notes](https://developer.android.com/jetpack/andr
 
 Finally, deleting the bulk of the default code in `MainActivity` helps simplify things.
 
-```kotlin
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            MaterialTheme {
-
-            }
-        }
-    }
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/5268192866709a1b2c3d99032e994dcd.js"></script>
 
 ## Show some user data
 
@@ -137,28 +110,7 @@ Note that these functions are not defined inside of the `MainActivity`
 class. They should be usable from other classes as well. I just put them in the
 same file for convenience.
 
-```kotlin
-@Composable
-fun DisplayName(name: String) {
-    Text(
-        text = name
-    )
-}
-
-@Composable
-fun Handle(handle: String) {
-    Text(
-        text = handle
-    )
-}
-
-@Composable
-fun PostTime(time: String) {
-    Text(
-        text = "time"
-    )
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/5ca6a0809bb2b0d2316e799a030f7b94.js"></script>
 
 Each function has the `@Compose` annotation so the system knows these are
 composable functions. Each function has a `String` parameter for the text to
@@ -167,16 +119,7 @@ display.
 With these low-level functions in place, I combine them into a higher-level
 function representing the row of text.
 
-```kotlin
-@Composable
-fun UserInfoRow(name: String, handle: String, time: String) {
-    Row {
-        DisplayName(name)
-        Handle(handle)
-        PostTime(time)
-    }
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/422fa8438c421d4d48f4b0ed37d910ae.js"></script>
 
 To display items in a row with compose, you use the `Row` component. This
 component accepts a lambda argument with each of the items it needs to
@@ -194,19 +137,7 @@ the preview pane in Android Studio. I use this to create a preview function to
 view the progress of my tweet view. For now, it displays my current
 `UserInfoRow`.
 
-```kotlin
-@Preview
-@Composable
-fun TwitterPreview() {
-    MaterialTheme {
-        UserInfoRow(
-            name = "Brian Gardner",
-            handle = "@BrianGardnerDev",
-            time = "7m"
-        )
-    }
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/23491d11f3e004eabd05ede6c49c554c.js"></script>
 
 <img src="/assets/images/compose_1/user_info_row_view.png" alt="User info row
 view displayed in the preview pane" class="post-image"/>
@@ -226,15 +157,7 @@ Fortunately, adding space to the text is straightforward. I started by looking
 at the `DisplayName` composable. There is a `modifier` parameter to
 the `Text` composable where padding can be applied.
 
-```kotlin
-@Composable
-fun DisplayName(name: String) {
-    Text(
-        text = name,
-        modifier = LayoutPadding(0.dp, 0.dp, 8.dp, 0.dp)
-    )
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/60300e1f8794be18398395bcbaccc397.js"></script>
 
 The `LayoutPadding` object has two constructors. The one I use above specifies
 the padding for the left, top, right, and bottom of the view separately.
@@ -248,15 +171,7 @@ display name and handle composable views" class="post-image"/>
 With that padding in place, I copy this padding to the `Handle` composable to
 add space between the twitter handle and post time.
 
-```kotlin
-@Composable
-fun Handle(handle: String) {
-    Text(
-        text = handle,
-        modifier = LayoutPadding(0.dp, 0.dp, 8.dp, 0.dp)
-    )
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/557ff485cf63b033dd0c1d8a0e8e5faf.js"></script>
 
 <img src="/assets/images/compose_1/user_info_row_spaced_out.png" alt="Padding
 added between handle and post time composable views" class="post-image"/>
@@ -272,20 +187,7 @@ To modify the style of `Text` there is a `style` parameter that accepts
 a `TextStyle` object. The options on this class allow full control of how the
 text is displayed.
 
-```kotlin
-@Composable
-fun DisplayName(name: String) {
-    Text(
-        text=name,
-        modifier = LayoutPadding(0.dp, 0.dp, 8.dp, 0.dp),
-        style = TextStyle(
-            color = Color.Black,
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Bold
-        )
-    )
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/0f92f2aac1c6698f6297684244a2b0c3.js"></script>
 
 For the `DisplayText` I need three of the attributes. I pass in a color,
 font size, and font weight. This implementation makes clear that the
@@ -295,30 +197,7 @@ understand.
 A similar `TextStyle` applied to the `Handle` and `PostTime` functions makes the
 text look right.
 
-```kotlin
-@Composable
-fun Handle(handle: String) {
-    Text(
-        text = handle,
-        modifier = LayoutPadding(0.dp, 0.dp, 8.dp, 0.dp),
-        style = TextStyle(
-            color = Color.DarkGray,
-            fontSize = 12.sp
-        )
-    )
-}
-
-@Composable
-fun PostTime(time: String) {
-    Text(
-        text = time,
-        style = TextStyle(
-            color = Color.DarkGray,
-            fontSize = 12.sp
-        )
-    )
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/5301e98548ddc25cecc5f56f2bea4351.js"></script>
 
 Once the text styles are in place and the preview refreshes, things look
 much better.
@@ -327,18 +206,7 @@ much better.
 
 To complete the style, modifying the row with its own padding ensures the text has space between it and the other tweet content.
 
-```kotlin
-@Composable
-fun UserInfoRow(name: String, handle: String, time: String) {
-    Row(
-        modifier = LayoutPadding(8.dp)
-    ) {
-        DisplayName(name)
-        Handle(handle)
-        PostTime(time)
-    }
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/6cc6f4c6e26c43005cbbbb683a257975.js"></script>
 
 <img src="/assets/images/compose_1/user_info_row_with_padding.png" alt="User info row surrounded by padding" class="post-image"/>
 

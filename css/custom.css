@@ -129,3 +129,7 @@ header.masthead .overlay {
   font-size: 20px;
   color: #000000;
 }
+
+.gist .blob-code-inner {
+  font-size: 16px !important;
+}

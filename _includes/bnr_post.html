@@ -1,16 +1,18 @@
 <div class="bnr_post">
-  <a href={{ include.link }}>
+  <a href="{{ include.link }}">
     <div class="bnr-content">
       <div class="bnr-image-content">
-        <img src="/img/bnr_hat.png"
-            class="bnr-hat"
-            alt="Big Nerd Ranch company logo"/>
+        <img
+          src="/img/bnr_hat.png"
+          class="bnr-hat"
+          alt="Big Nerd Ranch company logo"
+        />
       </div>
       <div class="bnr-text-content">
-        <h4 class="post-title">{{ include.title }}</h3>
-        <p class="post-meta">{{ include.date | date: '%B %d, %Y' }}</p>
+        <p class="post-title">{{ include.title }}</p>
+        <p class="post-meta"><em>{{ include.date | date: '%B %d, %Y' }}</em></p>
       </div>
     </div>
   </a>
-  <hr>
+  <hr />
 </div>

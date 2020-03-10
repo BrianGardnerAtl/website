@@ -88,6 +88,20 @@
   max-width: 100%;
 }
 
+.post-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.post .post-meta {
+  margin: 0px;
+}
+
+.post-excerpt {
+  margin: 10px 0px;
+}
+
 .bnr-content {
   display: flex;
 }
@@ -101,10 +115,6 @@
 .bnr-text-content {
   display: flex;
   flex-direction: column;
-}
-
-.bnr-text-content .post-title {
-  margin-bottom: 0;
 }
 
 .bnr-text-content .post-meta {

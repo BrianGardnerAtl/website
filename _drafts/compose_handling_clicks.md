@@ -23,88 +23,15 @@ Instead, Compose has a class called `Clickable`. This object wraps the composabl
 
 Implementing this requires two steps. The first is to wrap the action row items in the `Clickable` class and the second is to pass in the click listeners. Views should only be responsible for displaying data. This also means that they should not handle their own click events. For this, the click listeners are passed as parameters to the action row functions. One of the higher-level functions is responsible for declaring the listeners instead.
 
-```kotlin
-@Composable
-fun Comment(onClick : () -> Unit) {
-    Clickable(onClick = onClick) {
-        val icon = vectorResource(R.drawable.ic_comment)
-        Container(
-            height = 24.dp,
-            width = 24.dp
-        ) {
-            // container contents collapsed
-        }
-    }
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/f742bc778ff842086e9e57d258a19c86.js"></script>
 
 The `Comment` function now accepts the `onClick` lambda and passes it to the `Clickable` component. None of the previous code is modified, it is just wrapped inside of the clickable element. The same treatment is applied to the `Retweet`, `Like`, and `Share` functions.
 
-```kotlin
-@Composable
-fun Retweet(onClick : () -> Unit) {
-    Clickable(onClick = onClick) {
-        val icon = vectorResource(R.drawable.ic_retweet)
-        Container(
-            height = 24.dp,
-            width = 24.dp
-        ) {
-            // container contents collapsed
-        }
-    }
-}
-
-@Composable
-fun Like(onClick : () -> Unit) {
-    Clickable(onClick = onClick) {
-        val icon = vectorResource(R.drawable.ic_like)
-        Container(
-            height = 24.dp,
-            width = 24.dp
-        ) {
-            // container contents collapsed
-        }
-    }
-}
-
-@Composable
-fun Share(onClick : () -> Unit) {
-    Clickable(onClick = onClick) {
-        val icon = vectorResource(R.drawable.ic_share)
-        Container(
-            height = 24.dp,
-            width = 24.dp
-        ) {
-            // container contents collapsed
-        }
-    }
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/a5a566c08cef29089bbe38074a322c39.js"></script>
 
 With the action row functions ready, the next step is to pass in the click listeners from the `ActionRow`. Kotlin syntax for passing lambdas outside of the parenthesis makes the code cleaner.
 
-```kotlin
-@Composable
-fun ActionRow() {
-    Row(
-        modifier = LayoutWidth.Fill + LayoutPadding(8.dp),
-        arrangement = Arrangement.SpaceAround
-    ) {
-        Comment {
-            // display toast
-        }
-        Retweet {
-            // display toast
-        }
-        Like {
-            // display toast
-        }
-        Share {
-            // display toast
-        }
-    }
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/307d0868f9ba5f818281abfaf90e0923.js"></script>
 
 With the lambdas in place, all that is needed is the toast.
 
@@ -116,59 +43,15 @@ The composable functions are not defined inside of my `MainActivity` because I w
 
 Compose provides **Ambient** components to access information from composable functions. Some components you can access are context, screen density, layout direction, and coroutine context. Each of these is contained in an ambient class. This class is accessible from any composable function. The `current` property is used to access the ambient component value in a composable function.
 
-```kotlin
-@Composable
-fun ActionRow() {
-    val context = ContextAmbient.current
-    Row(
-        modifier = LayoutWidth.Fill + LayoutPadding(8.dp),
-        arrangement = Arrangement.SpaceAround
-    ) {
-        // action row items collapsed
-    }
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/0cb83975ea70bafff1dd8f8fb106b818.js"></script>
 
 With the context object, a `Toast` can now be displayed to the user. Each action row item will show a different message to differentiate them.
 
-```kotlin
-@Composable
-fun ActionRow() {
-    val context = ContextAmbient.current
-    Row(
-        modifier = LayoutWidth.Fill + LayoutPadding(8.dp),
-        arrangement = Arrangement.SpaceAround
-    ) {
-        Comment {
-            Toast.makeText(context, "Clicked on comment", Toast.LENGTH_SHORT).show()
-        }
-        Retweet {
-            Toast.makeText(context, "Clicked on retweet", Toast.LENGTH_SHORT).show()
-        }
-        Like {
-            Toast.makeText(context, "Clicked on like", Toast.LENGTH_SHORT).show()
-        }
-        Share {
-            Toast.makeText(context, "Clicked on share", Toast.LENGTH_SHORT).show()
-        }
-    }
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/97234f45c7eec8282a5dab90b9e2389c.js"></script>
 
 In order to see the toast messages in action, the app needs to run on a device or emulator. To do this, I need to tell `MainActivity` to display my `TweetView` as its contents.
 
-```kotlin
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            MaterialTheme {
-                TweetView()
-            }
-        }
-    }
-}
-```
+<script src="https://gist.github.com/BrianGardnerAtl/387ec14c8c8174249be7436556dee0ef.js"></script>
 
 With that in place I can run the app to see my `TweetView`. Clicking on the action row items displays the toast messages.
 

@@ -40,7 +40,9 @@ While the icon is displayed on the screen, it is difficult to see on a light bac
 
 Building the project updates the preview pane and shows the new background.
 
-<img class="post-image" src="/assets/images/compose_7/profile_image_with_background.png" alt="Preview pane showing the profile image preview with a dark gray background color."/>
+<div class="post-icon">
+    <img src="/assets/images/compose_7/profile_image_with_background.png" alt="Preview pane showing the profile image preview with a dark gray background color."/>
+</div>
 
 The background color looks good but the square shape does not. The profile image should be circular to match Twitter. Modifying the shape of a component is the responsibility of the `Clip` function. This function accepts a shape as a parameter and it will clip it's children to that shape.
 
@@ -48,7 +50,9 @@ The background color looks good but the square shape does not. The profile image
 
 This code produces the pleasing, round profile image I am looking for.
 
-<img class="post-image" src="/assets/images/compose_7/round_profile_image.png" alt="Preview pane showing the circle clipped profile image."/>
+<div class="post-icon">
+    <img src="/assets/images/compose_7/round_profile_image.png" alt="Preview pane showing the circle clipped profile image."/>
+</div>
 
 The last update to the profile image is to add padding. This requires wrapping the clip function in another container since the `Clip` function does not accept a `modifier` parameter.
 
@@ -56,7 +60,9 @@ The last update to the profile image is to add padding. This requires wrapping t
 
 This ensures that the profile image always has a buffer between it and the other `TweetView` contents.
 
-<img class="post-image" src="/assets/images/compose_7/profile_image_with_padding.png" alt="Preview pane showing the profile image with additional padding."/>
+<div class="post-icon">
+    <img src="/assets/images/compose_7/profile_image_with_padding.png" alt="Preview pane showing the profile image with additional padding."/>
+</div>
 
 ## Display profile image in TweetView
 

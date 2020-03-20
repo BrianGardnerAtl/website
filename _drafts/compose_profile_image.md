@@ -14,7 +14,7 @@ Unfortunately, these libraries do not currently work with Jetpack Compose. They 
 
 ## Profile image compose function
 
-The initial setup for the profile image mirrors the action row items. A vector asset is needed for the default user photo. This asset is loaded with the `vectorResource` function, which is displayed in a `Container` using the `DrawVector` function.
+The initial setup for the profile image mirrors the action row items. A vector asset is needed for the default user photo. This asset is loaded with the `vectorResource` function, which is displayed in a `Container` using the `drawVector` function.
 
 The icon is added using the [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio) just like the other action row icons. I used the `person` icon for the default asset and named it `ic_profile_photo_default`.
 
@@ -22,7 +22,7 @@ With the icon in place, the next step is adding a `@Composable` annotated functi
 
 <script src="https://gist.github.com/BrianGardnerAtl/e29f8bfaa8ff74aea529b7fd90a12d65.js"></script>
 
-Next, the default photo is drawn into a `Container` with the `DrawVector` function. I tried a few different sizes and ended up liking how the profile image looked at `36dp`.
+Next, the default photo is drawn into a `Container` with the `drawVector` function. I tried a few different sizes and ended up liking how the profile image looked at `36dp`.
 
 <script src="https://gist.github.com/BrianGardnerAtl/04f5d978aa392922123aafd502db165d.js"></script>
 
@@ -44,7 +44,7 @@ Building the project updates the preview pane and shows the new background.
     <img src="/assets/images/compose_7/profile_image_with_background.png" alt="Preview pane showing the profile image preview with a dark gray background color."/>
 </div>
 
-The background color looks good but the square shape does not. The profile image should be circular to match Twitter. Modifying the shape of a component is the responsibility of the `Clip` function. This function accepts a shape as a parameter and it will clip it's children to that shape.
+The background color looks good but the square shape does not. The profile image should be circular to match Twitter. Modifying the shape of a component is the responsibility of the `drawClip` modifier function. This function accepts a shape as a parameter and it will clip it's children to that shape.
 
 <script src="https://gist.github.com/BrianGardnerAtl/73b88b33ee2636da7677d43bda5a5286.js"></script>
 
@@ -54,7 +54,9 @@ This code produces the pleasing, round profile image I am looking for.
     <img src="/assets/images/compose_7/round_profile_image.png" alt="Preview pane showing the circle clipped profile image."/>
 </div>
 
-The last update to the profile image is to add padding. This requires wrapping the clip function in another container since the `Clip` function does not accept a `modifier` parameter.
+The last update to the profile image is to add padding. I attempted to add the padding directly to the `drawClip` modifier on the `Surface` but this caused the surface to render as a square again. I am not sure if this is a bug on the `Surface` or not, but I had to find another solution.
+
+What I came up with is to wrap the `Surface` function in another `Container` and add the padding to that.
 
 <script src="https://gist.github.com/BrianGardnerAtl/a610a4dd306471361d2d85c888eb982a.js"></script>
 

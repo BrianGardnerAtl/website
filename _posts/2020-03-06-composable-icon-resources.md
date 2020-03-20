@@ -4,6 +4,8 @@ title: "Composable Icon Resources"
 post-excerpt: "Learn how to use vector icons with compose and how to space items out in a Row."
 ---
 
+(Updated 3/20/2020 with vector drawing changed from dev07 release)
+
 [My previous blog post](/2020/02/27/compose-setup-and-text.html) covers setting up an Android project with Jetpack Compose and displaying text. This post focuses on displaying icons for the Tweet's action row.
 
 But first, a quick detour. The Tweet content lives between the user information row and the action row. This content is wrapped in a `Text` element along with an applied `TextStyle`. Since this composable item is not contained in a `Row` it also needs padding applied to it directly.
@@ -53,7 +55,7 @@ The action functions need to load and display these vector assets. Each function
 
 <script src="https://gist.github.com/BrianGardnerAtl/bb7a7e9863d210e6df9d7fa1990ab725.js"></script>
 
-When the images are loaded, the action items need a place to draw their icon. There is currently no composable item like `ImageButton` but the icons can be drawn manually. There is a `DrawVector()` function that handles drawing vector assets but it needs to be drawn into something. There is a composable called `Container` that fits this use case.
+When the images are loaded, the action items need a place to draw their icon. There is currently no composable item like `ImageButton` but the icons can be drawn manually. There is a `Container()` function that can be used to hold the vector image. Doing so requires using the `drawVector()` modifier function.
 
 <script src="https://gist.github.com/BrianGardnerAtl/2073448060522643acef8b95e7e4db20.js"></script>
 
@@ -65,7 +67,7 @@ Once each action item has a container with a vector asset, the preview updates t
 
 ### Tint the icons
 
-These icons work but they are difficult, if not impossible, to see on a light background. The `tintColor` attribute on the `DrawVector` function provides an easy way to specify the color of the icon.
+These icons work but they are difficult, if not impossible, to see on a light background. The `tintColor` attribute on the `drawVector()` function provides an easy way to specify the color of the icon.
 
 <script src="https://gist.github.com/BrianGardnerAtl/d73c4c2718d7bace228899c17e93ab91.js"></script>
 

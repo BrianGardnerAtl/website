@@ -4,6 +4,8 @@ title: "Handle Composable Clicks"
 post-excerpt: "Learn how to respond to click events from composable functions as well as how to access the Context object."
 ---
 
+(Updated 3/20/2020 with vector drawing changed from dev07 release)
+
 The action row buttons look good so far but they are not functional. Tapping
 on them does nothing which is disappointing for users. This post focuses
 on making composable views clickable. When finished, the actions displays a `Toast`

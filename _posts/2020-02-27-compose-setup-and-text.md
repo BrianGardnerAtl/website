@@ -6,7 +6,7 @@ a project with Jeptack Compose and start implementing a copy-cat Tweet view."
 header: "/assets/images/compose_1/header_image.jpg"
 ---
 
-(Updated 3/10/2020 with new Android Studio version requirements)
+(Updated 3/20/2020 with vector drawing changed from dev07 release)
 
 [Jetpack Compose](https://developer.android.com/jetpack/compose) is a new
 library from the Android team that simplifies UI creation. Small, composable
@@ -80,7 +80,7 @@ in the template project is behind the latest version. I did not run
 into issues with this until trying to deal with vector image loading but
 updating it now ensures I am using the current APIs.
 
-I update the versions of four compose dependencies to dev06 from dev02.
+I update the versions of four compose dependencies to dev07 from dev02.
 
 <script src="https://gist.github.com/BrianGardnerAtl/f3e0dca9ec0fe294e5eaef1dd12c370c.js"></script>
 

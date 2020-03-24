@@ -1,3 +1,4 @@
+<!-- Meta tags for the Twitter cards -->
 <meta name="twitter:site" content="@briangardnerdev" />
 <meta name="twitter:creator" content="@briangardnerdev" />
 {% if page.title %}
@@ -16,3 +17,17 @@
 {% else %}
 <meta name="twitter:card" content="summary" />
 {% endif %}
+
+<!-- Meta tags for Facebook/LinkedIn cards-->
+{% if page.header %}
+<meta property="og:image" content="{{ page.header }}" />
+{% endif %}
+<meta content="{{ site.title }}" property="og:site_name" />
+<meta content="{{ page.title }}" property="og:title" />
+<meta content="article" property="og:type" />
+<meta content="{{ page.post-excerpt }}" property="og:description" />
+<meta content="{{ site.url }}{{ page.url }}" property="og:url" />
+<meta
+  content="{{ page.date | date_to_xmlschema }}"
+  property="article:published_time"
+/>

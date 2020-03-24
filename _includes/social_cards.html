@@ -1,0 +1,19 @@
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@briangardnerdev" />
+<meta name="twitter:creator" content="@briangardnerdev" />
+{% if page.title %}
+<meta name="twitter:title" content="{{ page.title }}" />
+{% else %}
+<meta name="twitter:title" content="{{ site.title }}" />
+{% endif %} {% if page.url %}
+<meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
+{% endif %} {% if page.post-excerpt %}
+<meta name="twitter:description" content="{{ page.post-excerpt }}" />
+{% else %}
+<meta name="twitter:description" content="{{ site.description }}" />
+{% endif %} {% if page.image %}
+<meta
+  name="twitter:image:src"
+  content="{{ site.url }}/images/posts/{{ page.image }}"
+/>
+{% endif %}

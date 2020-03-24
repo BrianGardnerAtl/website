@@ -1,4 +1,3 @@
-<meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@briangardnerdev" />
 <meta name="twitter:creator" content="@briangardnerdev" />
 {% if page.title %}
@@ -13,4 +12,7 @@
 <meta name="twitter:description" content="{{ site.description }}" />
 {% endif %} {% if page.header %}
 <meta name="twitter:image:src" content="{{ site.url}}{{ page.header }}" />
+<meta name="twitter:card" content="summary_large_image" />
+{% else %}
+<meta name="twitter:card" content="summary" />
 {% endif %}

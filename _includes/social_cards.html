@@ -23,11 +23,16 @@
 <meta property="og:image" content="{{ page.header }}" />
 {% endif %}
 <meta content="{{ site.title }}" property="og:site_name" />
-<meta content="{{ page.title }}" property="og:title" />
+<meta name="title" content="{{ page.title }}" property="og:title" />
 <meta content="article" property="og:type" />
-<meta content="{{ page.post-excerpt }}" property="og:description" />
+<meta
+  content="{{ page.post-excerpt }}"
+  property="og:description"
+  name="description"
+/>
 <meta content="{{ site.url }}{{ page.url }}" property="og:url" />
 <meta
   content="{{ page.date | date_to_xmlschema }}"
   property="article:published_time"
 />
+<meta name="author" content="Brian Gardner" />

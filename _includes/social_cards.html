@@ -21,6 +21,11 @@
 <!-- Meta tags for Facebook/LinkedIn cards-->
 {% if page.header %}
 <meta property="og:image" content="{{ page.header }}" />
+{% else %}
+<meta
+  property="og:image"
+  content="{{ site.url }}/img/pineapple_background_950w.png"
+/>
 {% endif %}
 <meta content="{{ site.title }}" property="og:site_name" />
 <meta name="title" content="{{ page.title }}" property="og:title" />

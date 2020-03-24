@@ -2,6 +2,7 @@
 layout: post
 title: "Compose Simple State"
 post-excerpt: "Learn how to add basic view state and how to conditionally add views in your composable functions."
+header: "/assets/images/compose_4/header_image.jpg"
 ---
 
 So far all of the data displayed in the Tweet view is static. The composable functions have parameters for the data they display but these values are hard-coded in `TweetView`. In this post the Tweet data is collected into a model object and fed to the composable functions.
@@ -77,3 +78,5 @@ Wrapping the `Text` in an if statement requires that the count is greater than z
 With that, the simple state implementation is complete. Over the next couple blog posts the `Comment`, `Like`, and `Retweet` components will be able to update the view state. The like and retweet will toggle on and off, and comment will increment the count since users can comment multiple times on the same Tweet.
 
 Thanks for reading and stay tuned for more!
+
+Photo by [Hal Gatewood](https://unsplash.com/@halgatewood) on [Unsplash](https://unsplash.com)

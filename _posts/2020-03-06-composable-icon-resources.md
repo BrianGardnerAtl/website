@@ -2,6 +2,7 @@
 layout: post
 title: "Composable Icon Resources"
 post-excerpt: "Learn how to use vector icons with compose and how to space items out in a Row."
+header: "/assets/images/compose_2/header_image.jpg"
 ---
 
 (Updated 3/20/2020 with vector drawing changed from dev07 release)
@@ -139,3 +140,5 @@ Place children such that they are spaced evenly across the main axis, including 
 My preference here is for the `SpaceAround` version. The row looks better with space before the comment icon and after the share icon, but not the full amount of space that `SpaceEvenly` uses.
 
 In this post I added the Tweet content and action row to the Tweet view, as well as how to load and draw vector resources, and the different arrangement options for a row. Stay tuned for the next post in the series about handling click events!
+
+Photo by [Andrik Langfield](https://unsplash.com/@andriklangfield) on [Unsplash](https://unsplash.com)

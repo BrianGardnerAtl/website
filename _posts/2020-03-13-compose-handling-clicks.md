@@ -2,6 +2,7 @@
 layout: post
 title: "Handle Composable Clicks"
 post-excerpt: "Learn how to respond to click events from composable functions as well as how to access the Context object."
+header: "/assets/images/compose_3/header_image.jpg"
 ---
 
 (Updated 3/20/2020 with vector drawing changed from dev07 release)
@@ -62,3 +63,5 @@ With that in place I can run the app to see my `TweetView`. Clicking on the acti
 With that, my action row views are clickable. In the next couple blog posts I will implement state for my composable function. The action row will display the number of comments, retweets, and likes. The state will also be modified when the user clicks on the corresponding action row views.
 
 Thanks for reading and stay tuned for more!
+
+Photo by [Ira Selendripity](https://unsplash.com/@selendripity) on [Unsplash](https://unsplash.com)

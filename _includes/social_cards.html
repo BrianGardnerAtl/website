@@ -11,8 +11,8 @@
 <meta name="twitter:description" content="{{ page.post-excerpt }}" />
 {% else %}
 <meta name="twitter:description" content="{{ site.description }}" />
-{% endif %} {% if page.social_image }
-<meta name="twitter:image:src" content="{{ site.url}}{{ page.social_image }}" />
+{% endif %} {% if page.social-image }
+<meta name="twitter:image:src" content="{{ site.url}}{{ page.social-image }}" />
 <meta name="twitter:card" content="summary_large_image" />
 {% elsif page.header %}
 <meta name="twitter:image:src" content="{{ site.url}}{{ page.header }}" />
@@ -26,8 +26,8 @@
 {% endif %}
 
 <!-- Meta tags for Facebook/LinkedIn cards-->
-{% if page.social_image }
-<meta name="twitter:image:src" content="{{ site.url}}{{ page.social_image }}" />
+{% if page.social-image }
+<meta name="twitter:image:src" content="{{ site.url}}{{ page.social-image }}" />
 <meta name="twitter:card" content="summary_large_image" />
 {% elsif page.header %}
 <meta property="og:image" content="{{ page.header }}" />

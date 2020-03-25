@@ -14,15 +14,15 @@ Unfortunately, these libraries do not currently work with Jetpack Compose. They 
 
 ## Profile image compose function
 
-The initial setup for the profile image mirrors the action row items. A vector asset is needed for the default user photo. This asset is loaded with the `vectorResource` function, which is displayed in a `Container` using the `drawVector` function.
+The initial setup for the profile image mirrors the action row items. A vector asset is needed for the default user photo. This asset is loaded with the `vectorResource` function, which is displayed in an `Icon`.
 
-The icon is added using the [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio) just like the other action row icons. I used the `person` icon for the default asset and named it `ic_profile_photo_default`.
+The icon resource is added using the [Vector Asset Studio](https://developer.android.com/studio/write/vector-asset-studio) just like the other action row icons. I used the `person` icon for the default asset and named it `ic_profile_photo_default`.
 
-With the icon in place, the next step is adding a `@Composable` annotated function for the profile image and grab a reference to the default photo.
+With the resource in place, the next step is adding a `@Composable` annotated function for the profile image and grab a reference to the default photo.
 
 <script src="https://gist.github.com/BrianGardnerAtl/e29f8bfaa8ff74aea529b7fd90a12d65.js"></script>
 
-Next, the default photo is drawn into a `Container` with the `drawVector` function. I tried a few different sizes and ended up liking how the profile image looked at `36dp`.
+Next, the default photo is drawn into an `Icon`. I tried a few different sizes and ended up liking how the profile image looked at `36dp`.
 
 <script src="https://gist.github.com/BrianGardnerAtl/04f5d978aa392922123aafd502db165d.js"></script>
 
@@ -34,7 +34,7 @@ After building the project, both preview functions will render in the preview pa
 
 <img class="post-image" src="/assets/images/compose_7/two_preview_functions.png" alt="Preview pane showing two composable views rendered"/>
 
-While the icon is displayed on the screen, it is difficult to see on a light background. Drawing the icon on top of a dark gray background would help it stand out. This is accomplished by wrapping the icon `Container` in a `Surface` function and providing a background color. The `Surface` is drawn first and the icon is then drawn on top of it.
+While the icon is displayed on the screen, it is difficult to see on a light background. Drawing the icon on top of a dark gray background would help it stand out. This is accomplished by wrapping the icon `Icon` in a `Surface` function and providing a background color. The `Surface` is drawn first and the icon is then drawn on top of it.
 
 <script src="https://gist.github.com/BrianGardnerAtl/ec69631156c5f8c0b97b96829832f839.js"></script>
 
@@ -56,7 +56,7 @@ This code produces the pleasing, round profile image I am looking for.
 
 The last update to the profile image is to add padding. I attempted to add the padding directly to the `drawClip` modifier on the `Surface` but this caused the surface to render as a square again. I am not sure if this is a bug on the `Surface` or not, but I had to find another solution.
 
-What I came up with is to wrap the `Surface` function in another `Container` and add the padding to that.
+What I came up with is to wrap the `Surface` function in a `Box` and add the padding to that.
 
 <script src="https://gist.github.com/BrianGardnerAtl/a610a4dd306471361d2d85c888eb982a.js"></script>
 
@@ -76,8 +76,8 @@ This displays the user's profile image in the correct place in the `TweetView`.
 
 <img class="post-image" src="/assets/images/compose_7/tweet_view_with_profile_image.png" alt="Preview pane showing the profile image displayed in the tweet view."/>
 
-With that, the basic Tweet view is complete! It has been a long journey to get here but along the way I have learned a lot about how compose displays data on the screen and I have grown to love this type of view creation. I am excited to see what Jetpack Compose introduces in the future and how it will change Android development.
+With that, the basic Tweet view is complete! It has been a long journey to get here but along the way I have learned a lot about how Compose displays data on the screen and I have grown to love this type of view creation. I am excited to see what Jetpack Compose introduces in the future and how it will change Android development.
 
-Fortunately, this blog series is not ending here. In future posts I am going to focus on displaying a list of my `TweetView`s, displaying a floating action button above the list for adding a Tweet, and modifying the theme of my app.
+Fortunately, this blog series is not ending here. In future posts I am going to focus on displaying a list of my `TweetView`s, adding an App Bar, displaying a floating action button above the list for adding a Tweet, and modifying the theme of my app.
 
 Thanks again for reading and stay tuned for more!

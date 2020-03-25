@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Compose Toggleable Buttons"
-post-excerpt: "FILL IN BEFORE POSTING"
+post-excerpt: "Learn how to modify the state of a model class and how Toggleable is different from Clickable."
 ---
 
-[In my previous post](fill_this_in), a `Tweet` class is added to hold the state for the `TweetView`. In this post, some of the action buttons are set up to modify the state when clicked.
+[In my previous post](https://briangardner.tech/2020/03/25/compose-icon-buttons.html), the `Container` components are removed since they will be deprecated soon. The vector assets are also drawn using the `Icon` and `IconButton` components. In this post, some of the action buttons are set up to modify the state when clicked.
 
 The comment button will increment the comment count since a user can leave multiple comments on a single Tweet. The like and retweet buttons will act as a toggle. These also need a selected state so users know if they have liked or retweeted that Tweet.
 
@@ -12,7 +12,7 @@ The comment button will increment the comment count since a user can leave multi
 
 A few things are needed to handle a click on the comment action item. The click event lambda needs to handle updating the comment count, and the `Tweet` class needs to be updated so our composable functions can react to changes to its properties.
 
-Modifying the click lambda is first. Incrementing the comment count will require moving the declaration of the lambda to a higher-order composable function. It is currently initialized in the `ActionRow` function, but there is no reference to the `Tweet` class here. Passing the tweet down to the `ActionRow` would pollute it with unnecessary information. Instead, the event listener will be lifted up to the `TweetView` function.
+Modifying the click lambda is first. Incrementing the comment count requires moving the declaration of the lambda to a higher-order composable function. It is currently initialized in the `ActionRow` function, but there is no reference to the `Tweet` class there. Passing the tweet down to the `ActionRow` would pollute it with unnecessary information. Instead, the event listener will be lifted up to the `TweetView` function.
 
 First, the `ActionRow` is updated to accept an event listener for a click on the comment view. This listener is passed to the `Comment` function.
 
@@ -69,8 +69,6 @@ The like and retweet actions are slightly different than comment. Instead of inc
 The `dev05` release of Compose introduced the `Toggleable` function which is exactly what the like and retweet actions need. This function accepts a `value` parameter indicating the current state of the toggle. It also accepts an `onValueChange` listener that receives the new value as a boolean flag when clicked. `Like` is updated first.
 
 <script src="https://gist.github.com/BrianGardnerAtl/d7ba8243396ec8465f56dc95baeb0392.js"></script>
-
-The contents of the `Row` are unchanged so they are collapsed for brevity.
 
 The `Clickable` function is changed to `Toggleable`. This function requires a value parameter and a value change listener. A boolean flag, `liked`, is passed to the `Like` function which is forwarded to `Toggleable`. The `onClick` listener parameter is updated to `onLikeChanged` which requires a `Boolean` property for the lambda. This listener is passed as the `onValueChange` property to `Toggleable`.
 

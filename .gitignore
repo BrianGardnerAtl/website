@@ -11,3 +11,5 @@ _site/
 
 # Don't include the mess that is node_modules in git please
 node_modules
+
+.DS_Store

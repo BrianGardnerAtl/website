@@ -4,9 +4,9 @@ title: "Immutable Data, Mutable State"
 post-excerpt: "FILL IN BEFORE POSTING"
 ---
 
-This post focuses on improving the state implementation from [my previous blog post](). At the end of the post the `Tweet` class is mutable. The click listeners update the interaction count values as well as the like and retweet state. While this does work, I prefer to keep my classes immutable. This forces me to be explicit when the state changes, thus reducing side effects from other areas in the code.
+This post focuses on improving the state implementation from [my previous blog post](FILL_IN_BEFORE_POSTING). At the end of the post the `Tweet` class is mutable. The click listeners update the interaction count values as well as the like and retweet state. While this does work, I prefer to keep my classes immutable. This forces me to be explicit when the state changes, thus reducing side effects from other areas in the code.
 
-The first goal is to make the `Tweet` class immutable. In this case it is not technically immutable since `val` just means read-only, but it's good enough for this use case.
+The first goal is to make the `Tweet` class immutable.
 
 <script src="https://gist.github.com/BrianGardnerAtl/f3f03a1a80ce80d1af45eefcfba4eb0b.js"></script>
 
@@ -23,12 +23,7 @@ This object is used to store an immutable variable. In this case, the `Tweet` ob
 
 Next, the `onCreate()` and preview functions need to wrap the `Tweet` object in a `MutableState`. There is a `mutableStateOf()` function that can accomplish this.
 
-```kotlin
-fun <T> mutableStateOf(
-    value: T,
-    areEquivalent: (old: T, new: T) -> Boolean = ReferentiallyEqual
-): MutableState<T> = ModelMutableState(value, areEquivalent)
-```
+<script src="https://gist.github.com/BrianGardnerAtl/b34b97e219b2239f436e9306d7045934.js"></script>
 
 This function accepts the state value as the first parameter. The second is a function that determines if two states are equal. The default value of this is `ReferentiallyEqual` which just determines if the two value objects have the same reference. This works for an immutable value object but if the value object can change, there is also a `StructurallyEqual` option that checks if the properties of the two value objects are equal.
 

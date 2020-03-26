@@ -2,6 +2,8 @@
 layout: post
 title: "Immutable Data, Mutable State"
 post-excerpt: "FILL IN BEFORE POSTING"
+social-image: "Fill in before posting"
+header: "fill in before posting"
 ---
 
 This post focuses on improving the state implementation from [my previous blog post](FILL_IN_BEFORE_POSTING). At the end of the post the `Tweet` class is mutable. The click listeners update the interaction count values as well as the like and retweet state. While this does work, I prefer to keep my classes immutable. This forces me to be explicit when the state changes, thus reducing side effects from other areas in the code.

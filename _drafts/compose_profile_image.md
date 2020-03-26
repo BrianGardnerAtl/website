@@ -2,6 +2,8 @@
 layout: post
 title: "Display a Round Profile Image"
 post-excerpt: "FILL IN BEFORE POSTING"
+social-image: "Fill in before posting"
+header: "fill in before posting"
 ---
 
 Twitter would not be complete without a round profile image on the left side of the Tweet. This post focuses on this last component of the Tweet view. For right now, a default profile image will be displayed for each Tweet instead of trying to download a photo.

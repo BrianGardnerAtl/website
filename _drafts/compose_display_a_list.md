@@ -2,6 +2,8 @@
 layout: post
 title: "Display a List of Tweets"
 post-excerpt: "FILL IN BEFORE POSTING"
+social-image: "Fill in before posting"
+header: "fill in before posting"
 ---
 
 In this post, the user will be able to see a list of tweets instead of just one. There are a couple components available to achieve this. I will review the pros and cons of each, as well as dive into the best candidate to implement the feature. Along the way, I will highlight the issues I encountered as well as some open issues I have not resolved yet.

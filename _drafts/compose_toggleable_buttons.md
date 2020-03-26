@@ -2,6 +2,8 @@
 layout: post
 title: "Compose Toggleable Buttons"
 post-excerpt: "Learn how to modify the state of a model class and how Toggleable is different from Clickable."
+social-image: "Fill in before posting"
+header: "fill in before posting"
 ---
 
 [In my previous post](https://briangardner.tech/2020/03/25/compose-icon-buttons.html), the `Container` components are removed since they will be deprecated soon. The vector assets are also drawn using the `Icon` and `IconButton` components. In this post, some of the action buttons are set up to modify the state when clicked.

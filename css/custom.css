@@ -7,7 +7,7 @@
   }
   .center-screenshot {
     width: 75%;
-    margin: auto;
+    margin: 20px auto;
   }
   header.masthead .site-heading {
     background-image: url("/img/pineapple_background.png");
@@ -25,7 +25,7 @@
   }
   .center-screenshot {
     width: 400px;
-    margin: auto;
+    margin: 20px auto;
   }
   header.masthead .site-heading {
     background-image: url("/img/pineapple_background_510w.png");
@@ -41,7 +41,7 @@
   }
   .center-screenshot {
     width: 400px;
-    margin: auto;
+    margin: 20px auto;
   }
   header.masthead .site-heading {
     background-image: url("/img/pineapple_background_690w.png");
@@ -57,7 +57,7 @@
   }
   .center-screenshot {
     width: 450px;
-    margin: auto;
+    margin: 20px auto;
   }
   header.masthead .site-heading {
     background-image: url("/img/pineapple_background_770w.png");
@@ -73,7 +73,7 @@
   }
   .center-screenshot {
     width: 500px;
-    margin: auto;
+    margin: 20px auto;
   }
   header.masthead .site-heading {
     background-image: url("/img/pineapple_background_950w.png");

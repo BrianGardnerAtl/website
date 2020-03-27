@@ -2,8 +2,8 @@
 layout: post
 title: "Compose Toggleable Buttons"
 post-excerpt: "Learn how to modify the state of a model class and how Toggleable is different from Clickable."
-social-image: "Fill in before posting"
-header: "fill in before posting"
+social-image: "/assets/images/compose_5/social_image.png"
+header: "/assets/images/compose_5/header_image.jpg"
 ---
 
 [In my previous post](https://briangardner.tech/2020/03/25/compose-icon-buttons.html), the `Container` components are removed since they will be deprecated soon. The vector assets are also drawn using the `Icon` and `IconButton` components. In this post, some of the action buttons are set up to modify the state when clicked.
@@ -137,3 +137,5 @@ In this post the action row is setup to modify the state of the view based on cl
 In the next post the state management will be further improved by making the `Tweet` class read only. Instead of having `var` properties, everything will be declared as a `val` to have an effectively immutable data class. This will provide some data protection because the individual model objects cannot be updated.
 
 Thanks for reading and stay tuned for more!
+
+Photo by [Hal Gatewood](https://unsplash.com/@halgatewood) on [Unsplash](https://unsplash.com)

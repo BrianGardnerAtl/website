@@ -102,6 +102,6 @@ This is obviously an issue because the action items are not placed in an overflo
 
 Currently there is no mechanism to force an overflow menu with the `TopAppBar`. This could be manually implemented by adding an overflow action and handling displaying a modal with the additional actions but this is a lot of extra work. The overflow option is coming in a future release so the best option is to limit the number of actions to something small and to test the app to ensure the title in the app bar is not compressed.
 
-This post looked at the `TopAppBar` component to display an app bar for my Tweetish app. My next post will focus on using a `Floating Action Button` for the add action instead of the app bar action. Future posts will look into using the navigation drawer, bottom navigation, and applying a theme to the app.
+This post looked at the `TopAppBar` component to display an app bar for my Tweetish app. My next post will add a navigation drawer to the app and hook it up to the navigation icon in the app bar. Future posts will look into using the floating action button, bottom navigation, and applying a theme to the app.
 
 Thanks for reading and stay tuned for more!

@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Immutable Data, Mutable State"
-post-excerpt: "FILL IN BEFORE POSTING"
-social-image: "Fill in before posting"
-header: "fill in before posting"
+post-excerpt: "Learn how to keep your data classes immutable while providing your composable views with an observable view state."
+social-image: "/assets/images/compose_6/social_image.png"
+header: "/assets/images/compose_6/header_image.jpg"
 ---
 
-This post focuses on improving the state implementation from [my previous blog post](FILL_IN_BEFORE_POSTING). At the end of the post the `Tweet` class is mutable. The click listeners update the interaction count values as well as the like and retweet state. While this does work, I prefer to keep my classes immutable. This forces me to be explicit when the state changes, thus reducing side effects from other areas in the code.
+This post focuses on improving the state implementation from [my previous blog post](https://briangardner.tech/2020/03/27/compose-toggleable-buttons.html). At the end of the post the `Tweet` class is mutable. The click listeners update the interaction count values as well as the like and retweet state. While this does work, I prefer to keep my classes immutable. This forces me to be explicit when the state changes, thus reducing side effects from other areas in the code.
 
 The first goal is to make the `Tweet` class immutable.
 
@@ -60,3 +60,5 @@ Now the `Tweet` class is immutable but the state can still be changed thanks to 
 My next post will focus on showing a profile image for the user, which will wrap up the basic Tweet view. Further posts will show how to display a list of Tweets as well as how to show a floating action button over the list.
 
 Thanks for reading and stay tuned for more!
+
+Photo by [Michal Czyz](https://unsplash.com/@digitalmike) on [Unsplash](https://unsplash.com).

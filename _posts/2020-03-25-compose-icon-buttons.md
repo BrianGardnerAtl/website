@@ -8,19 +8,9 @@ header: "/assets/images/compose_4_5/header_image.jpg"
 
 This post aims at fixing an impending issue with my current Tweet view implementation. In the `dev08` release of Compose the `Container` component is going to be removed. I have several usages of this component which I want to remove before updating my version.
 
-## Simple replacement
-
-One of my usages of `Container` adds padding to my `ProfileImage`. This is needed because the `Surface` used to color and clip the profile image does not work with the padding. Attempting to add the padding to the surface results in the clip not being applied.
-
-Fixing this usage just requires replacing the `Container` with the `Box` component.
-
-<script src="https://gist.github.com/BrianGardnerAtl/bc202cd3aa8fc8a011d3653dd96c9817.js"></script>
-
-The `Box` provides the same API as the `Container` so it should be used going forward. One main benefit is that the `Box` does not require the `children` parameter which makes the call cleaner if you do not need child views. This avoids the hanging brackets that are common with empty `Containers`.
-
 ## Better icon drawing
 
-The four other usages of `Container` facilitate drawing vector assets for the action row items. While I could replace these instances with a `Box`, there is a more suitable component available.
+The current usages of `Container` facilitate drawing vector assets for the action row items. While I could replace these instances with a `Box` component (the simple replacement for `Container`), there is a more suitable component available.
 
 I can instead use the `Icon` component. This component has three parameters. The first is a `VectorAsset` which can be provided by the `vectorResource()` function. The other two parameters are optional. A `modifier` and `tint` can be provided to configure how the icon is drawn to the screen.
 

@@ -87,7 +87,7 @@ Once the other size modifiers are fixed that leaves two more warnings. There is 
 
 The padding can be updated to use `Modifier.padding()` and the `LayoutWidth.Fill` can be updated to use `Modifier.fillMaxWidth()`. These can still be added together and it will work.
 
-<script src="https://gist.github.com/BrianGardnerAtl/c44e3d64e98d612627c24e5367f3f8a2.js"></script>/
+<script src="https://gist.github.com/BrianGardnerAtl/c44e3d64e98d612627c24e5367f3f8a2.js"></script>
 
 However, this does look pretty gross and fortunately there is a better way. All of the functions called on the `Modifier` class return the `Modifier` so they can be chained together like a builder pattern. This allows the previous code snippet to be simplified a bit.
 

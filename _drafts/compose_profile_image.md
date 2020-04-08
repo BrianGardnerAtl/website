@@ -46,7 +46,7 @@ Building the project updates the preview pane and shows the new background.
     <img src="/assets/images/compose_7/profile_image_with_background.png" alt="Preview pane showing the profile image preview with a dark gray background color."/>
 </div>
 
-The background color looks good but the square shape does not. The profile image should be circular to match Twitter. Modifying the shape of a component is the responsibility of the `drawClip` modifier function. This function accepts a shape as a parameter and it will clip it's children to that shape.
+The background color looks good but the square shape does not. The profile image should be circular to match Twitter. The `Surface` accepts a `shape` parameter that will clip the child views to that shape.
 
 <script src="https://gist.github.com/BrianGardnerAtl/73b88b33ee2636da7677d43bda5a5286.js"></script>
 
@@ -56,9 +56,7 @@ This code produces the pleasing, round profile image I am looking for.
     <img src="/assets/images/compose_7/round_profile_image.png" alt="Preview pane showing the circle clipped profile image."/>
 </div>
 
-The last update to the profile image is to add padding. I attempted to add the padding directly to the `drawClip` modifier on the `Surface` but this caused the surface to render as a square again. I am not sure if this is a bug on the `Surface` or not, but I had to find another solution.
-
-What I came up with is to wrap the `Surface` function in a `Box` and add the padding to that.
+The last update to the profile image is to add padding. This is acheived by providing the padding modifier to the `Surface` and specifiying the amount.
 
 <script src="https://gist.github.com/BrianGardnerAtl/a610a4dd306471361d2d85c888eb982a.js"></script>
 

@@ -10,7 +10,7 @@ Navigation is an important feature in any Android app. One of the common ways to
 
 ## Other options
 
-If you look through the compose documentation you will likely find the `ModalDrawerLayout` which implements the typical navigation drawer. This is the first component I tried using to add the drawer to the app but it did not work as expected.
+If you look through the compose documentation you will likely find the `ModalDrawerLayout` which implements the typical navigation drawer. This is the first component I tried using to add the drawer but it did not work as I expected.
 
 Adding the component to the app involved specifying the state of the drawer, passing a state change listener, setting the drawer content, and setting the body content. I initially set the drawer content to be empty just to verify everything worked. Running the app and opening the drawer showed the first issue.
 
@@ -70,17 +70,7 @@ Adding the `TweetNavigation` to the `Scaffold` involved putting it in the `drawe
 
 <script src="https://gist.github.com/BrianGardnerAtl/f037d0cf86216a1094796b8bc60a60b6.js"></script>
 
-Running the app with the drawer content does surface an issue.
-
-<div class="center-screenshot">
-    <img class="post-device-screenshot" src="/assets/images/compose_10/drawer_content_centered.png" alt="Emulator screenshot showing the drawer contents centered in the drawer."/>
-</div>
-
-I have a hunch this is because the `Column` is shrinking to fit the `Text` items and the drawer is just centering it. I can specify the `LayoutWidth` and `LayoutHeight` on the `Column` to force it to fill the drawer.
-
-<script src="https://gist.github.com/BrianGardnerAtl/c76073d668e10269689ab8048ddd5fce.js"></script>
-
-Running the app confirms that the drawer content is now filling the drawer size.
+Running the app confirms that the drawer content is filled out.
 
 <div class="center-screenshot">
     <img class="post-device-screenshot" src="/assets/images/compose_10/drawer_contents_expanded.png" alt="Emulator screenshot showing the drawer contents expanding to fill the size of the drawer."/>
@@ -94,7 +84,17 @@ Wrapping the `ScaffoldState` creation in a `state {}` block provides access to t
 
 The `onScaffoldStateChange` function can then be used to change the state of the scaffold when the navigation icon is clicked.
 
+First, the `TweetBar` needs to take in a click listener as a parameter to handle the navigation icon click.
+
+<script src="https://gist.github.com/BrianGardnerAtl/c7b9c8f967f7e1b94aec091f1731a582.js"></script>
+
+Then, the `ListScreen` can pass in the listener that modifies the `scaffoldState` and calls the `onScaffoldStateChange` listener to the `TweetBar` component.
+
 <script src="https://gist.github.com/BrianGardnerAtl/e29ef93dce14b7f0a9b123d6a6b9f13c.js"></script>
+
+One last cleanup task involved updating the `TweetBarPreview` so the project will build. An empty lambda is enough to satisfy the compiler.
+
+<script src="https://gist.github.com/BrianGardnerAtl/7a1eee01eb13d7ad310f5fc3cb449e09.js"></script>
 
 The listener queries the current state of the drawer and sets it to the opposite. Running the app shows that clicking on the navigation icon opens the drawer.
 
@@ -105,6 +105,6 @@ The listener queries the current state of the drawer and sets it to the opposite
     </video>
 </div>
 
-## One more thing
+With that, the navigation drawer component is complete. A future post will examine how to perform the navigation when a navigation item is clicked. This will likely tie-in the navigation architecture component for even more Jetpack goodies.
 
-One last issue I found is that the back button does not close the drawer when it is open. It just closes the app since there is only one activity on the back stack.
+Thanks for reading and stay tuned for more!

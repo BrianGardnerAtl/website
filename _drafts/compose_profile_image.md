@@ -56,7 +56,7 @@ This code produces the pleasing, round profile image I am looking for.
     <img src="/assets/images/compose_7/round_profile_image.png" alt="Preview pane showing the circle clipped profile image."/>
 </div>
 
-The last update to the profile image is to add padding. This is acheived by providing the padding modifier to the `Surface` and specifiying the amount.
+The last update to the profile image is to add padding. This is achieved by providing the padding modifier to the `Surface` and specifying the amount.
 
 <script src="https://gist.github.com/BrianGardnerAtl/a610a4dd306471361d2d85c888eb982a.js"></script>
 

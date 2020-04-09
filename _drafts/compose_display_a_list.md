@@ -6,13 +6,13 @@ social-image: "Fill in before posting"
 header: "fill in before posting"
 ---
 
-In this post, the user will be able to see a list of tweets instead of just one. There are a couple components available to achieve this. I will review the pros and cons of each, as well as dive into the best candidate to implement the feature. Along the way, I will highlight the issues I encountered as well as some open issues I have not resolved yet.
+In this post, the user will see a list of tweets instead of just one. There are a couple components available to achieve this. I will review the pros and cons of each, and use the best candidate to implement the feature. Along the way, I will highlight the issues I encounter and open issues I have not yet resolved.
 
 ## Multiple options
 
-Currently there are a couple options for displaying a list of items. The first is the `VerticalScroller`. This component accepts a lambda as the last parameter to generate the children to display. The issue with this component is that it creates all of the child views at once. This works well for a small number of items but the memory performance is poor when the number of items to display grows.
+Currently there are a couple options for displaying a list of items. The first is the `VerticalScroller`. This component accepts a lambda as the last parameter to generate the children to display. The issue with this component is that it creates all of the child views at once. This works well for a small number of items but the memory performance is poor when the number grows.
 
-The `dev05` release of compose introduced the `AdapterList` component. This functions similarly to the `RecyclerView`, but it is much easier to setup. The `AdapterList` only generates the views that are currently on the screen so the performance is much better for large lists of items.
+The `dev05` release introduced the `AdapterList` component. This functions similarly to the `RecyclerView`, but it is easier to setup. The `AdapterList` only generates the views that are currently on the screen so the performance is much better for a large number of items.
 
 ## Display a list of tweets
 
@@ -20,7 +20,7 @@ The list of tweets is represented as another composable function. To get somethi
 
 <script src="https://gist.github.com/BrianGardnerAtl/ad09d795ab399b2278127fbd174ed857.js"></script>
 
-This list is passed to the `data` parameter of the `AdapterList`. As each item is displayed on screen, the associated `Tweet` object is passed to the `itemCallback` lambda.
+This list is passed to the `data` parameter of the `AdapterList`. As each item is displayed, the associated `Tweet` object is passed to the `itemCallback` lambda.
 
 <script src="https://gist.github.com/BrianGardnerAtl/88fa83142735b69b8adfdc80e49769bf.js"></script>
 
@@ -93,7 +93,7 @@ This requires updates to the `onCreate` function in `MainActivity` as well as up
 
 <script src="https://gist.github.com/BrianGardnerAtl/294e571f16e2ef5a9b6bf665fc6762af.js"></script>
 
-With these updates the `AdapterList` should observe any updates made to the list of tweets and update the corresponding `TweetView` row accordingly. However, the `AdapterList` is still not updating the individual rows. Based on my discussions with some of the folks working on Compose it seems like this is likely a bug in dev07. A bug ticket has been filed for this issue so I am hopeful it will be resolved soon!
+With these updates the `AdapterList` should observe any updates made to the list of tweets and update the corresponding `TweetView` row accordingly. However, the `AdapterList` is still not updating the individual rows. Toast messages added into the comment, like, and retweet listeners confirms that they are handling the events, but the screen is not updating. Based on my discussions with some of the folks working on Compose it seems like this is likely a bug in `AdapterList`. [A bug ticket has been filed for this issue](https://issuetracker.google.com/u/0/issues/151860426) so I am hopeful it will be resolved soon!
 
 With that, a list of tweets is now visible on the screen. `AdapterList` takes the performance benefits of `RecyclerView` and greatly simplifies the setup.
 

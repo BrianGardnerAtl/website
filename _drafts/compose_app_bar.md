@@ -6,7 +6,7 @@ social-image: "Fill in before posting"
 header: "fill in before posting"
 ---
 
-This post focuses on styling my copy-cat Tweet app with an App Bar. I will take a look at the component used to add thea pp bar as well as its various parameter options.
+This post focuses on styling my copy-cat Tweet app with an App Bar. I will take a look at the component used to add the app bar as well as its various parameter options.
 
 ## Create an app bar
 

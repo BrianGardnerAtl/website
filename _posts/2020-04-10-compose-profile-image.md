@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Display a Round Profile Image"
-post-excerpt: "FILL IN BEFORE POSTING"
-social-image: "Fill in before posting"
-header: "fill in before posting"
+post-excerpt: "A tweet view would not be complete without a round profile image. This post shows how to add an image with a background color and clip it to a circle."
+social-image: "/assets/images/compose_7/social_image.png"
+header: "/assets/images/compose_7/header_image.jpg"
 ---
 
 Twitter would not be complete without a round profile image on the left side of the Tweet. This post focuses on this last component of the Tweet view. For right now, a default profile image will be displayed for each Tweet instead of trying to download a photo.
@@ -81,3 +81,5 @@ With that, the basic Tweet view is complete! It has been a long journey to get h
 Fortunately, this blog series is not ending here. In future posts I am going to focus on displaying a list of my `TweetView`s, adding an App Bar, displaying a floating action button above the list for adding a Tweet, and modifying the theme of my app.
 
 Thanks again for reading and stay tuned for more!
+
+Photo by [Matt Botsford](https://unsplash.com/@mattbotsford) on [Unsplash](https://unsplash.com)

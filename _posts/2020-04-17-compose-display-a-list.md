@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Display a List of Tweets"
-post-excerpt: "FILL IN BEFORE POSTING"
-social-image: "Fill in before posting"
-header: "fill in before posting"
+post-excerpt: "There are two options for displaying a vertical list in Compose but each serves a different purpose. This post explores using AdapterList to show a list of Tweets."
+social-image: "/assets/images/compose_8/social_image.png"
+header: "/assets/images/compose_8/header_image.jpg"
 ---
 
 In this post, the user will see a list of tweets instead of just one. There are a couple components available to achieve this. I will review the pros and cons of each, and use the best candidate to implement the feature. Along the way, I will highlight the issues I encounter and open issues I have not yet resolved.
@@ -98,3 +98,5 @@ With these updates the `AdapterList` should observe any updates made to the list
 With that, a list of tweets is now visible on the screen. `AdapterList` takes the performance benefits of `RecyclerView` and greatly simplifies the setup.
 
 Thanks for reading and stay tuned for more!
+
+Photo by [Sandro Katalina](https://unsplash.com/@sandrokatalina) on [Unsplash](https://unsplash.com).

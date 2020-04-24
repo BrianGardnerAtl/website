@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Composable App Bar"
-post-excerpt: "FILL IN BEFORE POSTING"
-social-image: "Fill in before posting"
-header: "fill in before posting"
+post-excerpt: "The App Bar provides essential theming and navigation for the screens of your app. Learn how to configure one with Jetpack Compose in this post."
+social-image: "/assets/images/compose_9/social_image.png"
+header: "/assets/images/compose_9/header_image.jpg"
 ---
 
 This post focuses on styling my copy-cat Tweet app with an App Bar. I will take a look at the component used to add the app bar as well as its various parameter options.
@@ -105,3 +105,5 @@ Currently there is no mechanism to force an overflow menu with the `TopAppBar`. 
 This post looked at the `TopAppBar` component to display an app bar for my Tweetish app. My next post will add a navigation drawer to the app and hook it up to the navigation icon in the app bar. Future posts will look into using the floating action button, bottom navigation, and applying a theme to the app.
 
 Thanks for reading and stay tuned for more!
+
+Photo by [Darrell Fraser](https://unsplash.com/@darrellfraser) on [Unsplash](https://unsplash.com).

@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Navigation Drawer and Composable Scaffold"
-post-excerpt: "FILL IN BEFORE POSTING"
-social-image: "Fill in before posting"
-header: "fill in before posting"
+post-excerpt: "Navigation drawers are a common pattern in Android apps. Learn how to add one using the Scaffold component in Jetpack Compose"
+social-image: "/assets/images/compose_10/social_image.png"
+header: "/assets/images/compose_10/header_image.jpg"
 ---
 
 Navigation is an important feature in any Android app. One of the common ways to display navigation is through the navigation drawer. This post adds the navigation drawer to the Tweetish app through the use of the `Scaffold` component.
@@ -108,3 +108,5 @@ The listener queries the current state of the drawer and sets it to the opposite
 With that, the navigation drawer component is complete. A future post will examine how to perform the navigation when a navigation item is clicked. This will likely tie-in the navigation architecture component for even more Jetpack goodies.
 
 Thanks for reading and stay tuned for more!
+
+Photo by [Samuel Ramos](https://unsplash.com/@idgeek) on [Unsplash](https://unsplash.com).

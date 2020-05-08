@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Floating Action Button With Compose"
-post-excerpt: "FILL IN BEFORE POSTING"
-social-image: "Fill in before posting"
-header: "fill in before posting"
+post-excerpt: "Providing a main action for a screen is the perfect job for a Floating Action Button. Learn how to implement one with Jetpack Compose in this blog post."
+social-image: "/assets/images/compose_11/social_image.png"
+header: "/assets/images/compose_11/header_image.jpg"
 ---
 
 This post takes a look at adding a [Floating Action Button](https://material.io/develop/android/components/floating-action-button/) to replace the add action in the `TopAppBar`. Since that is the main action on the screen it makes sense to put it into the floating action button to position it in an easier to tap location.
@@ -66,3 +66,5 @@ There are two additional options: `Scaffold.FabPosition.EndDocked` and `Scaffold
 Overall, adding the `FloatingActionButton` is fairly streamlined with the use of the `Scaffold`. My next post will look at using the `BottomAppBar` and how the docked position of the floating action button compare.
 
 Thanks for reading and stay tuned for more!
+
+Photo by [Wim van 't Einde](https://unsplash.com/@wimvanteinde) on [Unsplash](https://unsplash.com).

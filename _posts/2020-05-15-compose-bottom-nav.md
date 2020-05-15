@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Bottom Navigation Bar With Compose"
-post-excerpt: "FILL OUT BEFORE POSTING"
-social-image: "FILL OUT BEFORE POSTING"
-header: "FILL OUT BEFORE POSTING"
+post-excerpt: "A bottom app bar provides easy to access navigation for your users, typically the main screens users should be able to access quickly. Learn how to add bottom navigation with Jetpack Compose in this post!"
+social-image: "/assets/images/compose_12/social_image.png"
+header: "/assets/images/compose_12/header_image.jpg"
 ---
 
 The Twitter app uses a navigation drawer for some navigation destinations but it also uses a bottom bar for the most often used screens: home, search, notifications, and messages.  This post adds the bottom bar component to my sample app and also shows how the docked floating action button positions work with the bottom bar.
@@ -77,3 +77,5 @@ Once this spacer is in place the icons are pushed away from the floating action 
 With that, the bottom app bar is complete. It provides a simple means to add navigation icons in easy reach for your users. Simplifying the floating action button cutout is a nice bonus as well.
 
 Thanks for reading and stay tuned for more!
+
+Photo by [Andrew Neel](https://unsplash.com/@andrewtneel) on [Unsplash](https://unsplash.com).
